@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea un script que pida al usuario los siguientes datos, asumiendo en todos los casos que el usuario introducirá un valor numérico:
+    </p>
+        <ul> 
+            <li>Precio por kilo de manzanas</li>
+            <li>Cantidad de manzanas</li>
+            <li>Precio por kilo de naranjas</li>
+            <li>Cantidad de naranjas</li>
+            <li>Precio por kilo de plátanos</li>
+            <li>Cantidad de plátanos</li>
+        </ul>
+    <p>
+        Cuando el usuario haya introducido todos los datos muestra un mensaje de la forma "Has comprado un total de &lt;kilos&gt; 
+        kilos de fruta y te ha costado &lt;importe_total&gt; euros".
+    </p>
+    <script>
+        let precioManzanas = prompt("Introduce el precio por kilo de manzanas");
+        let kilosManzanas  = prompt("Introduce la cantidad de manzanas");
+        let precioNaranjas = prompt("Introduce el precio por kilo de naranjas");
+        let kilosNaranjas  = prompt("Introduce la cantidad de naranjas");
+        let precioPlatanos = prompt("Introduce el precio por kilo de plátanos");
+        let kilosPlatanos  = prompt("Introduce la cantidad de platanos");
+        alert(`Has comprado un total de ${number(kilosManzanas) + number(kilosNaranjas) + number(kilosPlatanos)} kilos de fruta y 
+            te ha costado ${(kilosManzanas * precioManzanas) + (kilosNaranjas * precioNaranjas) + (kilosPlatanos * precioPlatanos)}`);
+    </script>
+
+</body>
+</html>
+
