@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea un script que pregunte al usuario su año de nacimiento y según sea le indique a qué generación pertenece teniendo en cuenta la siguiente tabla:
+        <br/>
+        Fecha de nacimiento	Generación
+        <br/>
+        1994 - 2010	Generación Z
+        <br/>
+        1981 - 1993	Generación Millenial
+        <br/>
+        1969 - 1980	Generación X
+        <br/>
+        1949 - 1968	Baby Boomer
+        <br/>
+        Si la fecha de nacimiento es anterior o posterior a las fechas indicadas se le mostrará también un mensaje notificándoselo.
+    </p>
+
+    <script>
+        let anno = prompt("Introduce tu año de nacimento");
+        anno = Number(anno);
+        (1994<=anno && anno<=2010) ? alert("Generación Z") : (1981<=anno && anno<=1993) ? alert("Generación Millenial") : (1969<=anno && anno<=1980) ? alert("Generación X") : (1949<=anno && anno<=1968) ? alert("Generación X") : alert("Año no disponible")
+    </script>
+</body>
+</html>

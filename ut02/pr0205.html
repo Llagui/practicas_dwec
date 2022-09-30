@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea un script que pida un número por pantalla al usuario, seguirá pidiéndolo hasta que el usuario introduzca un número valido. 
+        Cuando el número sea válido mostrará un mensaje diciendo "Has introducido el número &lt;numero&gt;".
+    </p>
+    <script>
+        let repetir = true;
+        
+        while (repetir){
+            let numero = prompt("Introduce un numero");
+            
+            if(!(numero == null || numero == "" || isNaN(numero))){
+                repetir = false;
+                alert(`Has introducido el número ${numero}`);
+            }
+        }
+       
+    </script>
+</body>
+</html>
