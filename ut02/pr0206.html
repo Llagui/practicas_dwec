@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea un script que solicite un número n y un valor k y que muestre por la consola los primero k elementos de la tabla de multiplicar de n.
+
+        Por ejemplo, si n=5 y k=12 mostraría una salida de la forma:
+        5 * 1 = 5 
+        5 * 2 = 10 
+        ... 
+        5 * 12 = 60
+    </p>
+    <script>
+        let n = prompt("Introduce un numero");
+        let k = prompt("Introduce otro numero para saber hasta donde multiplicar");
+        for(i=1;i<=k;i++){
+            let multiplicacion = n*i;
+            console.log(`${n} * ${i} = ${multiplicacion}`)
+        }
+    </script>
+</body>
+</html>

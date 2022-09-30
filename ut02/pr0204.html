@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea un script que pida al usuario el radio de un círculo y muestre por pantalla una cadena de la forma El perímetro del círculo de radio &lt;radio&gt; es &lt;perímetro&gt; y su área es &lt;área&gt;.
+    </p>
+    <p>
+        Recuerda que la fórmula del perímetro de un círculo es P = 2 · Pi · r y el del área A = Pr · r ^ 2.
+    </p>
+    <script>
+        //const PI = 3.1416
+        let radio = prompt("Introduce el radio");
+        alert(`El perímetro del círculo de radio ${radio} es ${Math.round((2 * Math.PI * Number(radio))*100)/100} y su área es ${Math.round((Math.PI * (Number(radio)**2))*100)/100}`);
+    </script>
+</body>
+</html>

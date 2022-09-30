@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Vamos a crear un script que preguntará al usuario la calle en la que vive y, en función de la calle que sea le recomendará qué linea de autobús tiene que tomar para ir al trabajo. 
+    Las diferentes líneas de autobús son:
+    <ul>
+        <li>
+            Línea 1: Calle Los Claveles, Calle El Rosal, Calle Las Hortensias y Calle Las Margaritas
+        </li>
+        <li>
+            Línea 2: Calle Teleno, Calle Catoute, Calle Peña Ubiña y Calle Vizcodillo
+        </li>
+        <li>
+            Línea 3: Calle Astorga, Calle La Bañeza y Calle Benavente
+        </li>
+    </ul>
+    Cuando el usuario introduzca la calle se le mostrará un mensaje de la forma "Tienes que tomar la &lt;linea_bus&gt; para ir desde la &lt;nombre_calle&gt; hasta el trabajo".
+
+    <script>
+        let calle = prompt("En que calle vives (No pongas Calle)");
+        (calle == "Los Claveles" || calle == "El Rosal" || calle == "Las Hortensias" || calle == "Las Margaritas" ) ? alert(`Tienes que tomar la Línea 1 para ir desde la Calle ${calle} hasta el trabajo`):
+        (calle == "Teleno" || calle == "Catoute"|| calle ==  "Peña Ubiña"|| calle ==  "Vizcodillo" ) ? alert(`Tienes que tomar la Línea 2 para ir desde la Calle ${calle} hasta el trabajo`):
+        (calle == "Astorga" || calle == "La Bañeza"|| calle == "Benavente") ? alert(`Tienes que tomar la Línea 3 para ir desde la Calle ${calle} hasta el trabajo`):
+        alert("Calle no reconocida");
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea un script que pida un número por pantalla al usuario y le diga si es par o impar. 
+        Si el usuario introdujera un valor inferior o igual a 0, o un valor no numérico se lo volverá a pedir.
+    </p>
+    <script>
+        let repetir = true;
+        let num;
+        while (repetir){
+            num = prompt("Introduce un numero");
+            if(!(num == null || num == "" || isNaN(num) )){
+                repetir = false;
+            }
+            num = Number(num);
+            num <= 0 ? repetir = true: repetir = false;
+        }
+        (num % 2 == 0) ? alert ("Par") : alert("Impar");
+    </script>
+</body>
+</html>
