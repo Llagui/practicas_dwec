@@ -26,7 +26,20 @@
     <script>
         let anno = prompt("Introduce tu año de nacimento");
         anno = Number(anno);
-        (1994<=anno && anno<=2010) ? alert("Generación Z") : (1981<=anno && anno<=1993) ? alert("Generación Millenial") : (1969<=anno && anno<=1980) ? alert("Generación X") : (1949<=anno && anno<=1968) ? alert("Generación X") : alert("Año no disponible")
+        /*
+        (1994<=anno && anno<=2010) ? 
+        alert("Generación Z") : (1981<=anno && anno<=1993) ? 
+        alert("Generación Millenial") : (1969<=anno && anno<=1980) ?
+        alert("Generación X") : (1949<=anno && anno<=1968) ? 
+        alert("Baby Boomer") : alert("Año no disponible")
+        */
+       let mensaje =    anno < 1948 ? "Año no disponible" :
+                        anno < 1968 ? "Baby Boomer":
+                        anno < 1980 ? "Generación X":
+                        anno < 1993 ? "Generación Millenial":
+                        anno < 2010 ? "Generación Z": 
+                        "Te has pasado de edad";
+        console.log(mensaje);
     </script>
 </body>
 </html>

@@ -24,10 +24,31 @@
 
     <script>
         let calle = prompt("En que calle vives (No pongas Calle)");
-        (calle == "Los Claveles" || calle == "El Rosal" || calle == "Las Hortensias" || calle == "Las Margaritas" ) ? alert(`Tienes que tomar la Línea 1 para ir desde la Calle ${calle} hasta el trabajo`):
+        /*(calle == "Los Claveles" || calle == "El Rosal" || calle == "Las Hortensias" || calle == "Las Margaritas" ) ? alert(`Tienes que tomar la Línea 1 para ir desde la Calle ${calle} hasta el trabajo`):
         (calle == "Teleno" || calle == "Catoute"|| calle ==  "Peña Ubiña"|| calle ==  "Vizcodillo" ) ? alert(`Tienes que tomar la Línea 2 para ir desde la Calle ${calle} hasta el trabajo`):
         (calle == "Astorga" || calle == "La Bañeza"|| calle == "Benavente") ? alert(`Tienes que tomar la Línea 3 para ir desde la Calle ${calle} hasta el trabajo`):
-        alert("Calle no reconocida");
+        alert("Calle no reconocida");*/
+        switch (calle){
+            case "Los Claveles": 
+            case "El Rosal": 
+            case"Las Hortensias": 
+            case "Las Margaritas":
+                alert(`Tienes que tomar la Línea 1 para ir desde la Calle ${calle} hasta el trabajo`);
+                break;
+            
+            case "Teleno": 
+            case "Catoute": 
+            case "Peña Ubiña": 
+            case "Vizcodillo":
+                alert(`Tienes que tomar la Línea 2 para ir desde la Calle ${calle} hasta el trabajo`);
+                break;
+
+            case "Astorga": 
+            case "La Bañeza": 
+            case "Benavente": 
+                alert(`Tienes que tomar la Línea 3 para ir desde la Calle ${calle} hasta el trabajo`);
+                break;
+        }
     </script>
 </body>
 </html>
