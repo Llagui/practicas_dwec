@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función sumOfMults( n, k ) que devuelva la suma de los k primeros múltiplos del número n.
+    </p>
+    <script>
+        let num1 = prompt("Introduce un numero");
+        let num2 = prompt("Introduce la cantidad dde multiplos");
+
+        alert(sumOfMults(num1,num2));
+
+        function sumOfMults(n,k) {
+            suma = 0;
+            for(i=1; i<=k; i++){
+                suma += n * i;
+            }
+            return suma;
+        }
+    </script>
+</body>
+</html>

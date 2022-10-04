@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función getFibonacciAt( n ) que devuelva el enésimo número de la serie de Fibonacci .
+        <br/>
+        Recuerda que la serie de Fibonacci se define como:
+        <br/>
+        fibonacci(0) = 0;<br/>
+        fibonacci(1) = 1;<br/>
+        fibonacci(n) = fibonacci( n-1 ) + fibonacci( n-2 );<br/>
+        // Por lo tanto la serie será: 0 1 1 2 3 5 8 13 21 34 55 ...<br/>
+        getFibonacciAt( 6 );        // Devuelve 8
+    </p>
+    <script>
+        let num = prompt("Introduce el numero para hallar su fibonnacci");
+        alert(getFibonnacciAt(num))
+        function getFibonnacciAt(n) {
+            fibonacciDosAnterior = 0;
+            fibonacciUnoAnterior = 1;
+            for(i=0; i<n-1; i++){
+                fibonacciCalculando = fibonacciUnoAnterior + fibonacciDosAnterior;
+                fibonacciDosAnterior = fibonacciUnoAnterior;
+                fibonacciUnoAnterior = fibonacciCalculando;
+            }
+            return fibonacciCalculando;
+            
+        }
+    </script>
+</body>
+</html>
