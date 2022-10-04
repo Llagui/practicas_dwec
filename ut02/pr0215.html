@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Escribe una función calc(operando1, operando2, operador) que reciba como parámetros dos operandos y una cadena con el operador, y devuelva el resultado de la operación indicada. Debe reconocer por lo menos seis operadores y mostrar un error en caso de invocarla con un operador erróneo.
+    </p>
+    <script>
+        let numero1 = prompt("Introduce un numero 1");
+        let numero2 = prompt("Introduce un numero 2");
+        let operacion = prompt("Introduce la operacion:\n (+ suma) (- resta) \n (* multipliacion) (/ Division) \n (% modulo)  (** elevar)");
+        alert(calc(numero1,numero2,operacion))
+
+        function calc(num1,num2,oper) {
+            num1 = Number(num1);
+            num2= Number(num2);
+            switch (oper) {
+                case "+":
+                    return num1 + num2;
+                    break;
+
+                case "-":
+                    return num1 - num2;
+                    break;
+
+                case "*":
+                    return num1 * num2;
+                    break;
+
+                case "/":
+                    let division = "El numero 2 no puede ser 0";
+                    if (num2 != 0){
+                        divsion = num1/num2
+                    }
+                    return division;
+                    break;
+
+                case "%":
+                    let modulo = "El numero 2 no puede ser 0";
+                    if (num2 != 0){
+                        modulo = num1%num2
+                    }
+                    return modulo;
+                    break;
+
+                case "**":
+                    return num1 ** num2;
+                    break;
+            
+                default:
+                    alert("Operador erroneo");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

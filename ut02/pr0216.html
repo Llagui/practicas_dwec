@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Escribe una función convertToBytes( capacity, from ) que reciba una cantidad y una unidad de medida y lo convierta a bytes. Las unidades de medida serán los múltiplos del byte hasta el Exabyte y en la unidad de medida se reconocerá tanto el nombre de la misma como la abreviatura
+    </p>
+    <script>
+        let cantidad = prompt("Introduce un numero ");
+        let desde = prompt("Introduce la unidad de medida");
+
+        alert(convertToBytes(cantidad,desde));
+
+        function convertToBytes(capacity,from) {
+            capacity = Number(capacity);
+
+            switch (from) {
+                case "Exabyte":
+                case "EB":
+                    capacity *= 1000;
+
+                case "Petabyte":
+                case "PB":
+                    capacity *= 1000;
+
+                case "Terabyte":
+                case "TB":
+                    capacity *= 1000;
+
+                case "Gigabyte":
+                case "GB":
+                    capacity *= 1000;
+
+                case "Megabyte":
+                case "MB":
+                    capacity *= 1000;
+                case "Kilobyte":
+                case "KB":
+                    capacity *= 1000;
+
+                case "Byte":
+                case "B":
+                    return capacity;
+                    break;
+            
+                default:
+                    alert("No has intoducido el destino correctamente");
+                    break;
+            }
+            
+        }
+    </script>
+</body>
+</html>

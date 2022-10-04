@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función isPrime(n) que devuelva true si el número n es primo y false en caso contrario. Intégrala en un script que pida un número al usuario y le diga si es primo o no. El script finalizará cuando el usuario introduzca el valor 0.
+    </p>
+    <script>
+        let numero = 1;
+        while(numero != 0){
+            let repetir = true; 
+
+            while(repetir){
+                numero = prompt("Introduce un numero (0 finaliza)");
+                if(numero >= 0){
+                    repetir = false; 
+                }
+            }
+
+            if(repetir == false && numero != 0){
+                if (isPrime(numero)) {
+                    alert("El numero " + numero + " es primo");
+                } else {
+                    alert("El numero " + numero + " no es primo");
+                }
+            }
+        }
+
+
+        function isPrime(n) {
+            let prime = true;
+            for(i = 2; i <= (n/2); i++){
+                if(n % i == 0){
+                    i = (n/2) + 1;
+                     prime = false;
+                }
+            }
+            return prime;
+        }
+    </script>
+</body>
+</html>

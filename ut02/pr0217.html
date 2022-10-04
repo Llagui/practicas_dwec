@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Mejora la función anterior para que realice las conversiones entre dos unidades de medida cualquiera. La función se llamará convertCapacity( n, from, to ), siendo el parámetro to la unidad de medida del valor n y from la unidad de medida a la que hay que convertirlo.
+
+        Aunque hay formas más eficientes de hacerlo, con lo que hemos visto hasta ahora lo más sencillo es convertir el valor pasado a bytes y desde ahí a la unidad de medida de destino.
+    </p>
+    <script>
+        let cantidad = prompt("Introduce un numero ");
+        let desde = prompt("Introduce la unidad de medida");
+        let hacia =  prompt("Introduce la unidad de medida de llegada");
+        alert(convertCapacity(cantidad,desde,hacia));
+
+        function convertCapacity(capacity,from,to) {
+            capacity = Number(capacity);
+
+            switch (from) {
+                case "Exabyte":
+                case "EB":
+                    capacity *= 1e3;
+
+                case "Petabyte":
+                case "PB":
+                    capacity *= 1e3;
+
+                case "Terabyte":
+                case "TB":
+                    capacity *= 1e3;
+
+                case "Gigabyte":
+                case "GB":
+                    capacity *= 1e3;
+
+                case "Megabyte":
+                case "MB":
+                    capacity *= 1e3;
+                case "Kilobyte":
+                case "KB":
+                    capacity *= 1e3;
+
+                case "Byte":
+                case "B":
+                    ;
+                    break;
+            
+                default:
+                    alert("No has intoducido el destino correctamente");
+                    break;
+            }
+
+            switch (to) {
+                case "Exabyte":
+                case "EB":
+                    capacity /= 1e18;
+                    return capacity;
+                    break;
+
+                case "Petabyte":
+                case "PB":
+                    capacity /= 1e15;
+                    return capacity;
+                    break;
+
+                case "Terabyte":
+                case "TB":
+                    capacity /= 1e12;
+                    return capacity;
+                    break;
+
+                case "Gigabyte":
+                case "GB":
+                    capacity /= 1e9;
+                    return capacity;
+                    break;
+
+                case "Megabyte":
+                case "MB":
+                    capacity /= 1e6;
+                    return capacity;
+                    break;
+
+                case "Kilobyte":
+                case "KB":
+                    capacity /= 1e3;
+                    return capacity;
+                    break;
+
+                case "Byte":
+                case "B":
+                    break;
+            
+                default:
+                    alert("No has intoducido el destino correctamente");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

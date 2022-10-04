@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Escribe una función que reciba tres números como parámetros y devuelva verdadero si se puede formar un triángulo con esas medidas. Para ello debes usar el teorema de la desigualdad triangular, que dice que se puede formar un triángulo siempre que la suma de dos lados del triángulo sea mayor que el tercer lado para cualquier combinación de lados.
+
+        Es decir, para los lados a, b y c se tienen que cumplir las siguientes tres condiciones:
+        <br/>
+        a + b > c
+        <br/>
+        a + c > b
+        <br/>
+        b + c > a
+    </p>
+    <script>
+        let num1 = prompt("Introduce el lado 1");
+        let num2 = prompt("Introduce el lado 2");
+        let num3 =  prompt("Introduce el lado 3");
+
+        if(isAPossibleTriangle(num1,num2,num3)){
+            alert("El traingulo es posible");
+        }else{
+            alert("El traingulo no es posible")
+        }
+
+
+        function isAPossibleTriangle(lado1,lado2,lado3) {
+            let isPossible = false;
+            if(lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1){
+                isPossible = true;
+            }
+            return isPossible;
+        }
+    </script>
+</body>
+</html>
