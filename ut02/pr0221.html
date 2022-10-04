@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función isNumber( str ) que reciba una cadena y devuelva true si contiene un número válido.
+    </p>
+    <script>
+        let num =  prompt("Introduce un numero");
+
+        if(isNumber(num)){
+            alert("Es un numero");
+        }else{
+            alert("No es un numero");
+        }
+
+        function isNumber(str) {
+            esNumero = true;
+            if(isNaN(Number(str)) || Number(str) === null){
+                esNumero = false;
+            }
+            return esNumero;
+        }
+    </script>
+</body>
+</html>
