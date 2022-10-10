@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función llamada removeUndefined(a) que tome como parámetro un objeto y devuelva una copia del mismo en el que se han eliminado todas las propiedades cuyo valor sea undefined.
+    </p>
+    <script>
+        function removeUndefined(obj) {
+            let objeto = {};
+
+            for (let key in obj) {
+                if (obj[key] != undefined) {
+                    objeto[key] = obj[key];
+                }
+            }
+
+            return objeto;
+        }
+
+        let objeto1 = {
+            propiedad1 : "Patata",
+        }
+
+        let objeto2 = {
+            propiedad1 : objeto1.propiedad2,
+            propiedad2 : "Patata",
+        }
+
+        console.log(removeUndefined(objeto2));
+    </script>
+</body>
+</html>
