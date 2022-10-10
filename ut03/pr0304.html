@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función llamada containsObject(a, b) que devuelve true si todas las propiedades del objeto b existen en el objeto a y false en caso contrario. El valor de las propiedades es indiferente.
+    </p>
+    <script>
+        function containsObject(a, b) {
+            for (let key in b) {
+                if (!(key in a)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        let objeto1 = {
+            propiedad1 : "Patata",
+            propiedad2 : "3",
+            propiedad3 : "jajas",
+        }
+        
+        let objeto2 = {
+            propiedad1 : "Puerro",
+            propiedad5 : "6",
+            propiedad6 : "js",
+        }
+        /*
+        let objeto2 = {
+            propiedad1 : "Puerro",
+        }
+        */
+
+        console.log(containsObject(objeto1,objeto2));
+    </script>
+</body>
+</html>

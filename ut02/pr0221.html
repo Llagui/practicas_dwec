@@ -20,11 +20,12 @@
         }
 
         function isNumber(str) {
-            esNumero = true;
+            /*esNumero = true;
             if(isNaN(Number(str)) || Number(str) === null){
                 esNumero = false;
             }
-            return esNumero;
+            return esNumero;*/
+            return isNaN(Number(str)) || Number(str) === null
         }
     </script>
 </body>
