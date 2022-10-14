@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función replaceWithPosition(str) que, dada una cadena, devuelva otra cadena en la que cada letra ha sido reemplazada por su posición en el alfabeto. Utilizaremos el alfabeto inglés, en el que no hay letra ñ.
+        <br/>
+        Ejemplo:
+        <br/>
+        replaceWithPosition('hola');    // '8 15 12 1'
+    </p>
+    <script>
+        function replaceWithPosition(str) {
+            str = str.trim().toLowerCase();
+            let letras = "abcdefghijklmnopqrstuvwxyz";
+            let posiciones = "";
+            for (let letra of str) {
+                for (let index = 0; index < letras.length; index++) {
+                    if(letra == letras[index]){
+                        posicion = ++index;
+                        posiciones += posicion +" ";
+                        break;
+                    }
+                }
+            }
+            return posiciones;
+        }
+
+        let palabra = prompt("Introduce una palabra")
+        alert(replaceWithPosition(palabra));
+    </script>
+</body>
+</html>

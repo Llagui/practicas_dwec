@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función removeVowels(str) que tome como parámetro una cadena y devuelva una nueva cadena con todas las vocales eliminadas.
+        <br/>
+        Ejemplo:
+        <br/>
+        removeVowels('Hola mundo');     // 'Hl mnd'<br/>
+        removeVowels('IES Villabalter de San Andres');  // S Vllbltr d Sn ndrs
+    </p>
+    <script>
+        function removeVowels(str) {
+            let cadenaSinVocales = str;
+            let vocales = "aeiouAEIOU";
+            for (let vocal of vocales) {
+                cadenaSinVocales = cadenaSinVocales.replaceAll(vocal, '');
+            }
+            return cadenaSinVocales;
+        }
+
+        let cadena = prompt("Intorduce una cadena");
+        alert("La cadena sin de vocales en \'" + cadena + "\'  es " + removeVowels(cadena));
+    </script>
+</body>
+</html>

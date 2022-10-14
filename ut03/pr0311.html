@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función ascendDescend( len, min, max ) que devuelva una cadena formada por la secuencia de longitud len formada por la concatenación de números que comience en min y se incrementen hasta max para posteriormente decrementarse, repitiendo el ciclo hasta alcanzar la longitud len.
+        <br/>
+        Ejemplo:
+        <br/>
+        ascendDescend( 8, 2, 7 );   // 23456765<br/>
+        ascendDescend( 10, 2, 5 );  // 2345432345
+    </p>
+    <script>
+        function ascendDescend(len, min, max) {
+            let num = min - 1;
+            let subiendo = true;
+            let cadena = "";
+            for (let i = 0; i < len; i++) {
+                if (num < max && subiendo) {
+                    num++;
+                }else if(num > min && !subiendo) {
+                    num--;
+                }else if(num == max) {
+                    num--;
+                    subiendo = false;
+                }else{
+                    num++;
+                    subiendo = true;
+                }
+
+                cadena += num;
+            }
+            return cadena;
+        }
+        let long = prompt("Intorduce la longuitud");
+        let minimo = prompt("Intorduce el minimo");
+        let maximo = prompt("Intorduce el maximo");
+        alert(ascendDescend(long, minimo, maximo));
+    </script>
+</body>
+</html>
