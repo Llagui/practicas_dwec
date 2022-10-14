@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función countVowels(str) que tome como parámetro una cadena (que solo contendrá letras y espacios) y devuelva el número de vocales que tenga, ignorando mayúsculas y minúsculas.
+        <br/>
+        Supondremos que la cadena de entrada no incluye caracteres no anglosajes, como tildes o diéresis.
+    </p>
+    <script>
+        function countVowels(str) {
+            str = str.toLowerCase();
+            let cantidadVocales = 0;
+            for (let char of str) {
+                if (char == "a" || char == "e" || char == "i" || char == "o" || char == "u") {
+                    ++cantidadVocales;
+                }
+            }
+            return cantidadVocales;
+        }
+
+
+        let cadena = prompt("Intorduce una cadena");
+        alert("La cantidad de vocales en \'" + cadena + "\'  es " + countVowels(cadena));
+    </script>
+</body>
+</html>

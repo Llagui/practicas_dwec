@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función convertBase( str, baseFrom, baseTo ) que tome como parámetro una cadena str que contiene un número en base baseFrom y devuelva una cadena con el número en base baseTo.
+    </p>
+    <script>
+        function convertBase(str, baseFrom, baseTo) {
+            let num = 0;
+            let baseValida = true;
+
+            baseFrom <= 32 && baseFrom >= 2 ?
+            num = Number.parseInt(str, baseFrom) :
+            baseValida = false;
+
+            baseValida ? 
+            num = Number(num).toString(baseTo):
+            baseValida = false;
+
+            if (baseValida) {
+                return str + " en base " + baseFrom + " es " + num + " en base " + baseTo;
+            } else {
+                return "Base no valida";
+            }
+        }
+
+        let numero = prompt("Introduce un numero");
+        let base = prompt("Introduce la base del numero");
+        let baseAConvertir = prompt("Introduce la base a convertir");
+        alert(convertBase(numero,base,baseAConvertir));
+        
+    </script>
+</body>
+</html>

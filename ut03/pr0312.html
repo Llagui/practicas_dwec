@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función isHeterograma(str) que devuelva true si la cadena pasada como parámetro es un heterograma y false en caso contrario.
+        <br/>
+        Un heterograma es una palabra o frase que no tiene ninguna letra repetida.
+        <br/>
+        Ejemplo:
+        <br/>
+        isHeterograma('Villabalter');   // false (se repite la a y la l)<br/>
+        isHeterograma('Victor');         // true
+    </p>
+    <script>
+        function isHeterograma(str) {
+            str = str.trim().toLowerCase();
+            let caracteresEnCadena = {};
+            for (let char of str) {
+                   if (char in caracteresEnCadena){ 
+                        return false;
+                   }else{
+                        caracteresEnCadena[char]= 1;
+                   }
+            }
+            return true;
+        }
+        let palabra = prompt("Introduce una palabra para saber si es heterograma");
+        alert((isHeterograma(palabra)));
+    </script>
+</body>
+</html>

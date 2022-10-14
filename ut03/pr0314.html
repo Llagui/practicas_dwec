@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función isPangrama(str) que devuelva true si la palabra pasada como parámetro es un pangrama.
+        <br/>
+        Un pangrama es un texto que usa todas las letras del alfabeto.
+        <br/>
+        Ejemplo:
+        <br/>
+        isPangrama('El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.');    // true
+        isPangrama('Un jugoso zumo de piña y kiwi bien frío es exquisito y no lleva alcohol.');     // true 
+    </p>
+    <script>
+        function isPangrama(str) {
+            str = str.trim().toLowerCase();
+            let caracteresEnCadena = {};
+            let abecedario = "abcdefghijklmnñopqrstuvwxyz";
+
+            for (let char of str) {
+                    char in caracteresEnCadena ?
+                        caracteresEnCadena[char]++ : 
+                        caracteresEnCadena[char]= 1;
+            }
+
+            for (let caracter in abecedario) {
+                if(caracteresEnCadena[abecedario[caracter]] == null ){
+                    console.log(abecedario[caracter]);
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        let palabra = prompt("Introduce una frase para saber si es pangrama");
+        alert((isPangrama(palabra)));
+    </script>
+</body>
+</html>

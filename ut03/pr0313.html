@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función isIsograma(str) que devuelva true si la cadena str es un isograma.
+        <br/>
+        Un isograma es una cadena o frase en el que cada letra aparece repetida el mismo número de veces (un heterograma es un caso especial de isograma en el que cada letra se repite una vez).
+        <br/>
+        Ejemplo:
+        <br/>
+        isIsograma('pa');           // true<br/>
+        isIsograma('papelera');     // false<br/>
+        isIsograma('deed');         // true
+    </p>
+    <script>
+        function isIsograma(str) {
+            str = str.trim().toLowerCase();
+            let caracteresEnCadena = {};
+            let numeroRepeticiones = 0;
+
+            for (let char of str) {
+                    char in caracteresEnCadena ?
+                        caracteresEnCadena[char]++ : 
+                        caracteresEnCadena[char] = 1;
+                numeroRepeticiones = caracteresEnCadena[char];
+            }
+
+            for (let letra in caracteresEnCadena) {
+                if(numeroRepeticiones != caracteresEnCadena[letra]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        let palabra = prompt("Introduce una palabra para saber si es heterograma");
+        alert((isIsograma(palabra)));
+    </script>
+</body>
+</html>

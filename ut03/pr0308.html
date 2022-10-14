@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función countLetters(str) que devuelva un objeto que contenga el número de veces que se repite cada letra. No se tendrán en cuenta los espacios y no se diferenciará entre mayúsculas y minúsculas.
+        <br/>
+        Al igual que en el ejercicio anterior, supondremos que no habrá vocales con tildes, diéresis, …
+        <br/>
+        Ejemplo:
+        <br/>
+        countLetters('DAW DWEC');       // { a: 1, c: 1, d: 2, e: 1, w: 2 }<br/>
+        countLetters('Hola mundo');     // { a: 1, d: 1, h: 1, l: 1, m: 1, n: 1, o: 2, u: 1}
+    </p>
+    <script>
+        function countLetters(str) {
+            str = str.trim().toLowerCase();
+            let caracteresEnCadena = {};
+            for (let char of str) {
+                    char in caracteresEnCadena ?
+                        caracteresEnCadena[char]++ : 
+                        caracteresEnCadena[char]= 1;
+            }
+            return caracteresEnCadena;
+        }
+        
+        let palabra = prompt("Introduce una palabra para contar las letras");
+        console.log((countLetters(palabra)));
+    </script>
+</body>
+</html>
