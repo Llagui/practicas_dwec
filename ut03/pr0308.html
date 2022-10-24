@@ -19,7 +19,7 @@
     </p>
     <script>
         function countLetters(str) {
-            str = str.trim().toLowerCase();
+            str = str.trim().toLowerCase().replaceAll(" ","");
             let caracteresEnCadena = {};
             for (let char of str) {
                     char in caracteresEnCadena ?

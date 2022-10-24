@@ -14,14 +14,14 @@
         <br/>
         Ejemplo:
         <br/>
-        isPangrama('El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.');    // true
+        isPangrama('El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja.');    // true<br/>
         isPangrama('Un jugoso zumo de piña y kiwi bien frío es exquisito y no lleva alcohol.');     // true 
     </p>
     <script>
         function isPangrama(str) {
             str = str.trim().toLowerCase();
             let caracteresEnCadena = {};
-            let abecedario = "abcdefghijklmnñopqrstuvwxyz";
+            const abecedario = "abcdefghijklmnñopqrstuvwxyz";
 
             for (let char of str) {
                     char in caracteresEnCadena ?
@@ -31,13 +31,13 @@
 
             for (let caracter in abecedario) {
                 if(caracteresEnCadena[abecedario[caracter]] == null ){
-                    console.log(abecedario[caracter]);
                     return false;
                 }
             }
             
             return true;
         }
+        
         let palabra = prompt("Introduce una frase para saber si es pangrama");
         alert((isPangrama(palabra)));
     </script>

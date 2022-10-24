@@ -16,7 +16,9 @@
         function countVowels(str) {
             str = str.toLowerCase();
             let cantidadVocales = 0;
+            //const vocales ="aeiou";
             for (let char of str) {
+                //if(vocales.includes(char)){
                 if (char == "a" || char == "e" || char == "i" || char == "o" || char == "u") {
                     ++cantidadVocales;
                 }
@@ -24,9 +26,12 @@
             return cantidadVocales;
         }
 
-
         let cadena = prompt("Intorduce una cadena");
         alert("La cantidad de vocales en \'" + cadena + "\'  es " + countVowels(cadena));
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            
+        }
     </script>
 </body>
 </html>

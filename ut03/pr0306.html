@@ -15,7 +15,7 @@
             let num = 0;
             let baseValida = true;
 
-            baseFrom <= 32 && baseFrom >= 2 ?
+            baseFrom <= 36 && baseFrom >= 2 ?
             num = Number.parseInt(str, baseFrom) :
             baseValida = false;
 
@@ -28,6 +28,7 @@
             } else {
                 return "Base no valida";
             }
+            //parseInt(str,baseFrom).toString(baseTo);
         }
 
         let numero = prompt("Introduce un numero");
