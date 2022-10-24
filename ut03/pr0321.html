@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función getUpperCase( arr ) que reciba como parámetro un arrays con strings y devuelve un array que únicamente contenga los strings cuyas letras sean todas mayúsculas.
+        <br/>
+        Ejemplo:
+        <br/>
+        getUpperCase( ['aBc', 'BE', 'hfa', 'AEO'] );        // [ 'BE', 'AEO ]
+    </p>
+    <script>
+        function getUpperCase(arr) {
+            const mayusculas = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
+            arr2 = arr.filter(item => {
+                let hayLetraMinuscula = false;
+                for (let i = 0; i < item.length ; i++) {
+                    if (!(mayusculas.includes(item[i]))) {
+                        hayLetraMinuscula = true;
+                        return false;
+                    }
+                }
+                return true;
+            }) 
+            return arr2;
+        }
+        console.log(getUpperCase( ['aBc', 'BE', 'hfa', 'AEO'] ));
+    </script>
+</body>
+</html>

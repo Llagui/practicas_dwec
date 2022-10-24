@@ -8,7 +8,7 @@
 </head>
 <body>
     <p>
-        Crea una función removeVowels(str) que tome como parámetro una cadena y devuelva una nueva cadena con todas las vocales eliminadas.
+        Crea una función removeVowels(str) que tome como parámetro una cadena y devuelva una nueva cadena con todas las vocales eliminadas. (con arrays)
         <br/>
         Ejemplo:
         <br/>
@@ -17,16 +17,15 @@
     </p>
     <script>
         function removeVowels(str) {
-            let cadenaSinVocales = str;
             const vocales = "aeiouAEIOU";
-            for (let vocal of vocales) {
-                cadenaSinVocales = cadenaSinVocales.replaceAll(vocal, '');
-                //if(!vowels.includes(char)){cadenaSinVocales+=char}
-            }
-            return cadenaSinVocales;
+
+            return str.split('')
+                      .filter( item => (!vocales.includes(item)) )
+                      .join('');
         }
 
         let cadena = prompt("Intorduce una cadena");
+        
         alert("La cadena sin de vocales en \'" + cadena + "\'  es " + removeVowels(cadena));
     </script>
 </body>

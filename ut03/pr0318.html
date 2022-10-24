@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función generateUsername(arr) que tome como parámetro un array de objetos con las propiedades name y surname y añada a cada elemento una propiedad nickname cuyo valor será la primera letra del nombre seguida del apellido (todo en minúsculas) y dos dígitos aleatorios.
+        <br/>
+        Ten en cuenta que nickname se tiene que añadir al mismo array y no crear uno nuevo.
+        <br/>
+        Ejemplo:
+        <br/>
+        let arr = [<br/>
+            {   name: 'Victor',<br/>
+                surname: 'González',<br/>
+            },<br/>
+            {<br/>
+                name: 'Pepe',<br/>
+                surname: 'Pérez',<br/>
+            }]<br/>
+        generateUsername( arr );        // [ {name: 'Victor', surname: 'González', nickname: 'vgonzalez73'},<br/>
+                                        //   {name: 'Pepe', surname: 'Pérez', nickname: 'pperez25'} ]
+    </p>
+    <script>
+        function generateUsername(arr) {
+            let nickname = arr.map(item =>{
+                return  item.name.charAt(0).toLowerCase() + item.surname.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,"") + Math.trunc(Math.random()*11,0)+ Math.trunc(Math.random()*11,0);
+            })
+
+            let i = 0;
+            arr.forEach(usuario => {
+                usuario["nickname"] = nickname[i];
+                i++;
+            });
+            return arr;
+        }
+
+        let arr = [
+            {   name: 'Victor',
+                surname: 'González',
+            },
+            {
+                name: 'Pepe',
+                surname: 'Pérez',
+            }]
+            console.log(generateUsername( arr ));
+    </script>
+</body>
+</html>

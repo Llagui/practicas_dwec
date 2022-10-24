@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función getNames( arr ) que tome como entrada un array de cadenas con nombres (nombre y apellidos) 
+        y devuelva un array de objetos de la forma { nombre: 'xxx', apellidos: 'yyy zzz' }. 
+        Vamos a suponer que tanto los nombres como cada uno de los apellidos solo tienen una única palabra.
+        <br/>
+        Ejemplo:
+        <br/>
+        getNames( ['Victor González Rodríguez', 'Pepe Pérez Fernández'] );      // [ { nombre: 'Victor', apellidos: 'González Rodríguez },
+                                                                                //   { nombre: 'Pepe', apellidos: 'Pérez Fernández' } ]
+    </p>
+    <script>
+        function getNames(arr) {
+            let i = 0; 
+            let arr2 = [];
+            //mejor con map
+            arr.forEach(nombreCompleto => {
+                arr2[i] = {"nombre" : nombreCompleto.split(" ")[0],
+                           "apellidos" : nombreCompleto.split(" ")[1] + nombreCompleto.split(" ")[2]};
+                //arr2[i]= nombreCompleto.reverse.split(" ",2);
+                i++;
+            });
+            return arr2;
+        }
+        console.log( getNames( ['Victor González Rodríguez', 'Pepe Pérez Fernández'] ));
+    </script>
+</body>
+
+</html>

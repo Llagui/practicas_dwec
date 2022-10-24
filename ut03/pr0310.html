@@ -17,17 +17,32 @@
     <script>
         function replaceWithPosition(str) {
             str = str.trim().toLowerCase();
-            let letras = "abcdefghijklmnopqrstuvwxyz";
+            const letras = "abcdefghijklmnopqrstuvwxyz";
             let posiciones = "";
             for (let letra of str) {
                 for (let index = 0; index < letras.length; index++) {
                     if(letra == letras[index]){
                         posicion = ++index;
-                        posiciones += posicion +" ";
+                        posiciones += posicion + " ";
                         break;
                     }
                 }
             }
+
+            // for (letra of str) {
+            //     posiciones += parseInt(letra,36) - 9 + " ";
+            // }
+
+            // const letras2 = "*abcdefghijklmnopqrstuvwxyz";
+            // for (letra of str) {
+            //     posciciones = posiciones.concat(letras2.indexOf(char), ' ');
+            // }
+
+            // tambien se puede hacer con charCodeAt()
+            // for (let i = 0; i < str.length; i++) {
+            //     posiciones += str.charCodeAt(i) - 96 + " ";
+            // }
+
             return posiciones;
         }
 
