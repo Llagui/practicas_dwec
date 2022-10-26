@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función maxString( arr ) que tome como parámetro un array de strings y devuelva la cadena de mayor longitud.
+
+        Ejemplo:
+
+        maxString( ['hola', 'victor', 'villabalter', 'IES'] );      // 'villabalter' 
+    </p>
+    <script>
+        function maxString(arr) {
+            return arr.reduce((acum,item)=>{
+                if(item.length > acum.length){
+                    acum = item;
+                }
+                return acum;
+            },arr[0])
+        }
+        console.log(maxString( ['hola', 'victor', 'villabalter', 'IES'] ));
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función getAverageGrade( str ) que recoja como parámetro el nombre de un módulo y devuelva la nota media de dicho módulo.
+        <br/>
+        Ejemplo:
+        <br/>
+        getAverageGrade( 'DIW' );       // 5.3
+    </p>
+    <script>
+        function getAverageGrade(str) {
+            let arr = [
+                {
+                    nombre: 'Pepe',
+                    ape1: 'Pérez',
+                    ape2: 'López',
+                    dni: '10100100',
+                    expediente: '1720',
+                    pass: '1234ABC',
+                    ciclo: 'DAW',
+                    notas: {
+                        DWEC: 7.8,
+                        DIW: 5.4,
+                        DWEC: 9.4
+                    }
+                },
+                {
+                    nombre: 'Juan',
+                    ape1: 'Mázquez',
+                    ape2: 'Hernández',
+                    dni: '7340831',
+                    expediente: '342',
+                    pass: 'P@ssw0rd',
+                    ciclo: 'DAW',
+                    notas: {
+                        DWEC: 8,
+                        DIW: 5.2,
+                        DWES: 4
+                    }
+                }
+            ];
+            return Math.round((arr.reduce((acum, item) => {return acum + item.notas[str]},0) / arr.length)*10**2)/10**2;
+        }
+        
+        console.log(getAverageGrade( 'DIW' ));
+    </script>
+</body>
+</html>

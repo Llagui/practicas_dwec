@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una una función getUnsecurePass() que devuelva un array con los nombres y apellidos de los alumnos que tengan una contraseña que no cumpla los requisitos de complejidad. Estos requisitos son:
+
+        Debe tener por lo menos un carácter en mayúsculas y uno en minúsculas
+        Debe tener por lo menos un dígito
+        Debe tener una longitud mínima de 8 caracteres
+    </p>
+    <script>
+        function hasUpperLetter(str) {
+            for (let i = 0; i < str.length; i++) {
+                if(str[i] == str[i].toUpperCase() && !Number.isInteger(Number(str[i])))
+                    return true;
+            }
+            return false;
+        }
+        function hasLowerLetter(str) {
+            for (let i = 0; i < str.length; i++) {
+                if(str[i] == str[i].toLowerCase())
+                    return true;
+            }
+            return false;
+        }
+        function hasDigit(str) {
+            for (let i = 0; i < str.length; i++) {
+                if(Number.isInteger(Number(str[i])))
+                    return true;
+            }
+            return false;
+        }
+
+        function getUnsecurePass() {
+            let arr = [
+                {
+                    nombre: 'Pepe',
+                    ape1: 'Pérez',
+                    ape2: 'López',
+                    dni: '10100100',
+                    expediente: '1720',
+                    pass: '1234ABC',
+                    ciclo: 'DAW',
+                    notas: {
+                        DWEC: 7.8,
+                        DIW: 5.4,
+                        DWES: 9.4,
+                    }
+                },
+                {
+                    nombre: 'Juan',
+                    ape1: 'Mázquez',
+                    ape2: 'Hernández',
+                    dni: '7340831',
+                    expediente: '342',
+                    pass: 'P@ssw0rd',
+                    ciclo: 'DAW',
+                    notas: {
+                        DWEC: 8,
+                        DIW: 5.2,
+                        DWES: 4
+                    }
+                },
+                {
+                    nombre: 'Juan',
+                    ape1: 'Mázques',
+                    ape2: 'Hernándes',
+                    dni: '7340831',
+                    expediente: '3452',
+                    pass: 'P@sswrd',
+                    ciclo: 'DAM',
+                    notas: {
+                        DWEC: 8,
+                        DIW: 5.2,
+                        DWES: 4
+                    }
+                }
+            ];
+            return arr.filter(item => {
+                return !(item.pass.length >= 8 && hasUpperLetter(item.pass) && hasLowerLetter(item.pass) && hasDigit(item.pass));
+            }).map(item => item.nombre +" "+ item.ape1 +" "+ item.ape2,); 
+        }
+        console.log(getUnsecurePass());
+    </script>
+</body>
+</html>

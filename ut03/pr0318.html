@@ -27,27 +27,32 @@
     </p>
     <script>
         function generateUsername(arr) {
-            let nickname = arr.map(item =>{
-                return  item.name.charAt(0).toLowerCase() + item.surname.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,"") + Math.trunc(Math.random()*11,0)+ Math.trunc(Math.random()*11,0);
-            })
+            // let nickname = arr.map(item =>{
+            //     return  item.name.charAt(0).toLowerCase() + item.surname.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,"") + Math.trunc(Math.random()*11,0)+ Math.trunc(Math.random()*11,0);
+            // })
 
-            let i = 0;
-            arr.forEach(usuario => {
-                usuario["nickname"] = nickname[i];
-                i++;
-            });
+            // let i = 0;
+            // arr.forEach(usuario => {
+            //     usuario["nickname"] = nickname[i];
+            //     i++;
+            // });
+
+
+            //quitar tildes: .normalize('NFD').replace(/[\u0300-\u036f]/g,"")
+
+
+            arr.forEach(item => {
+                item["nickname"] = item.name.charAt(0).toLowerCase() + item.surname.toLowerCase() + Math.trunc(Math.random()*10,0) + Math.trunc(Math.random()*10,0);
+            })
+            
             return arr;
         }
 
         let arr = [
-            {   name: 'Victor',
-                surname: 'González',
-            },
-            {
-                name: 'Pepe',
-                surname: 'Pérez',
-            }]
-            console.log(generateUsername( arr ));
+                {name: 'Victor', surname: 'González',},
+                {name: 'Pepe',surname: 'Pérez',}
+            ]
+        console.log(generateUsername( arr ));
     </script>
 </body>
 </html>

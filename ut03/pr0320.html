@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Vamos a suponer que tenemos un arrays con cadenas que incluyen fechas de la forma DD-MM-YYYY donde DD es el día, MM es el mes y YYYY es el año. Desarrolla una función sortDates( arr ) que devuelva un array con las mismas fechas ordenadas cronológicamente. El objetivo de este ejercicio es prácticas con la manipulación de cadenas y métodos de arrays, por lo que no debes utilizar las funciones de JavaScript para trabajar con fechas.
+        <br/>
+        Ejemplo:
+        <br/>
+        sortDates( ['24-05-2020', '02-12-2018', '14-02-2020'] );    // ['02-12-2018', '14-02-2020', '24-05-2020']
+    </p>
+    <script>
+       
+        function sortDates(arr) {
+            return arr.sort( (a, b) => {
+                if (a.substring(6) > b.substring(6)) {
+                    return 1;
+                }else if (a.substring(6) < b.substring(6)){
+                    return -1;
+                }else{
+                    if (a.substring(3,5) > b.substring(3,5)) {
+                    return 1;
+                    }else if (a.substring(3,5) < b.substring(3,5)){
+                        return -1;
+                    }else{
+                        if (a.substring(0,2) > b.substring(0,2) ){
+                            return 1;
+                        }else if(a.substring(0,2) < b.substring(0,2)){
+                            return -1;
+                        }
+                    }
+                }
+            } )
+            
+        }
+        console.log(sortDates( ['24-05-2020', '02-12-2018', '14-02-2020'] ));
+    </script>
+</body>
+</html>
