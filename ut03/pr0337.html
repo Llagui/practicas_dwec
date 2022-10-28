@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función cakes( recipe, ingredients ) donde recipe es un objeto con los ingredientes y cantidades que hacen falta para realizar una receta y ingredients es otro objeto con los ingredientes que hay disponibles. La función debe devolver un número que corresponderá con el número de recetas que se pueden realizar con los ingredientes disponibles.
+
+        cakes(  {flour: 500, sugar: 200, eggs: 1},
+                {flour: 1200, sugar: 1200, eggs: 5, milk: 200});   // Devuelve 2
+
+        cakes(  {apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, 
+                {sugar: 500, flour: 2000, milk: 2000});     // Devuelve 0
+    </p>
+    <script>
+        function cakes(recipe, ingredients) {
+            let cantidadRecetas = Infinity;
+            for (clave in recipe) {
+                if(ingredients[clave]){
+                    if(cantidadRecetas > Math.trunc(ingredients[clave]/recipe[clave])){
+                        cantidadRecetas = Math.trunc(ingredients[clave]/recipe[clave]);
+                    }
+                }else{
+                    cantidadRecetas = 0;
+                }
+            }
+            return cantidadRecetas;
+            //ingredientes de receta recorren los de los ingredientes dividen y se coge el menor truncado
+        }
+        console.log(cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200}));
+        console.log(cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100},{sugar: 500, flour: 2000, milk: 2000}));
+    </script>
+</body>
+</html>
