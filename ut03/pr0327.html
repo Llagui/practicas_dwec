@@ -62,6 +62,8 @@
             ];
             
             return arr.filter(item => item.ciclo == str).length;
+            //return arr.filter(({ciclo}) => ciclo == str).length;
+            //return arr.reduce((acum,{ciclo}}) => {if(ciclo == str){return ++acum}},0)
         }
 
         console.log(getNumberOfAlumnos( 'DAM' ));

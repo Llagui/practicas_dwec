@@ -62,6 +62,7 @@
                 }
             ];
             arr.filter(item => item.ciclo == str).forEach(item => alumnosCiclo.push(item.nombre + " " + item.ape1+ " " + item.ape2));
+            //arr.filter(item => item.ciclo == str).map(({nombre,ape1,ape2}) =>(`${nombre} ${ape1} ${ape2}`));
             return alumnosCiclo;
         }
 
