@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Diseña una función maxSequence( arr ) que tome un array de enteros (positivos o negativos) como entrada y devuelva el subarray cuya suma sea mayor.
+        <br/>
+        Ejemplo:
+        <br/>
+        maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])    // Devuelve 6, que es la suma del subarray [4, -1, 2, 1]
+    </p>
+    <script>
+        function maxSequence(arr) {
+            let sumaMaxima = 0;
+            for (let i = 0; i < arr.length; i++) {
+                let arr2 = arr.slice([i]);
+                let suma = 0;
+                for (let j = 0; j < arr2.length; j++) {
+                    suma += parseInt(arr2[j]);
+                    if (suma > sumaMaxima) {
+                        sumaMaxima = suma;
+                    }
+                }
+            }
+            return sumaMaxima
+        }
+        console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+    </script>
+</body>
+</html>

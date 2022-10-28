@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Desarrolla una función findNextPower( n, pow) que, dado un número n, devuelva la potencia pow de otro número más próxima que sea superior a n.
+        <br/>
+        Ejemplo:
+        <br/>
+        findNextPower( 70, 4 );         // 81, ya que es 81 = 3^4<br/>
+        findNextPower( 12385, 3 );      // 13824
+    </p>
+    <script>
+        function findNextPower(n,pow) {
+            let base = 1;
+            let num = 1;
+            while(n >= num){
+                num = base ** pow;
+                base++;
+            }
+            return num;
+        }
+        console.log(findNextPower( 8, 3 ));
+        console.log(findNextPower( 12385, 3 ));
+    </script>
+</body>
+</html>

@@ -13,6 +13,8 @@
     <script>
         function addNif(arr) {
             const NIF = "TRWAGMYFPDXBNJZSQVHLCKE";
+            //let NIF = Array.from("TRWAGMYFPDXBNJZSQVHLCKE");
+            //let NIF = "TRWAGMYFPDXBNJZSQVHLCKE".split('');
             arr.forEach(persona => {
                 persona["nif"] = persona.dni + NIF[persona.dni % 23];
                 delete persona.dni;

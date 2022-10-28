@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función XO( str ) que tome como parámetro una cadena y devuelva true si la cadena tiene el mismo número de X que de O (sin distinguir entre mayúsculas y minúsculas). La cadena puede tener cualquier otro carácter que se ignorará.
+        <br/>
+        XO("ooxx")    // true<br/>
+        XO("xooxx")   // false<br/>
+        XO("ooxXm")   // true<br/>
+        XO("zpzpzpp") // true <br/>
+        XO("zzoo")    // false
+    </p>
+    <script>
+        function XO(str) {
+            let palabra = str.toLowerCase().split('');
+            return palabra.filter(item => item == 'o').length == palabra.filter(item => item == 'x').length;
+        }
+        console.log(XO("ooxx"));
+        console.log(XO("xooxx"));
+        console.log(XO("ooxXm"));
+        console.log(XO("zpzpzpp"));
+        console.log(XO("zzoo"));
+    </script>
+</body>
+</html>

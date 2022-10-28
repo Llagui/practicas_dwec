@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función reverseWords(str) que tome una cadena strcomo entrada y devuelva la misma cadena invirtiendo el orden de las letras de cada palabra.
+        <br/>
+        Ejemplo:
+        <br/>
+        reverseWords('Hola mundo');      // 'aloH odnum'
+        reverseWords('IES Villabalter')  // 'SEI retlaballiV'
+    </p>
+    <script>
+        function reverseWords(str) {
+            let invertida = '';
+            str.split(' ').forEach(element => {
+                invertida += element.split('').reverse().join('')+ ' ';
+            }); 
+            return invertida;
+        }
+        console.log(reverseWords('Hola mundo'));
+        console.log(reverseWords('IES Villabalter') );
+    </script>
+</body>
+</html>

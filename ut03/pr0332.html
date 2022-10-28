@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Crea una función arrayDiff( a, b ) que tome como parámetros dos arrays y devuelva el resultado de eliminar del primero todos los elementos que se encuentren en el segundo.
+        <br/>
+        Ejemplo:
+        <br/>
+        arrayDiff([1,2],[1]);       // [2]
+    </p>
+    <script>
+        function arrayDiff(a,b) {
+            return a.filter(item1 => !b.find(item => item == item1));
+        }
+        console.log(arrayDiff([1,2,3,4],[1,3]));
+    </script>
+</body>
+</html>
