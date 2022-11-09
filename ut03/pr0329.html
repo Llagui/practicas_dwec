@@ -69,7 +69,9 @@
             return arr.map(item =>{
                 return {alumno : item.nombre +" "+ item.ape1 +" "+ item.ape2, 
                     expediente : item.expediente,
-                    nota_media :  Math.round(getMedia(item.notas)),}
+                    nota_media :  Math.round(getMedia(item.notas)),
+                    //nota_media : Object.values(item.notas).reduce((acum,item,index,array)=> {return (index < array.length-1)?acum+notas:acum+notas/array.length})
+                    }
             } 
             )
         }

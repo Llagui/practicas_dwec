@@ -15,26 +15,32 @@
         Debe tener una longitud mínima de 8 caracteres
     </p>
     <script>
+        // function isSecurePassword(str){
+        //     return str.split().some(item => item == item.toUpperCase() && item == item.toUpperCase() && Number.isInteger(Number(item)));
+        // }
         function hasUpperLetter(str) {
-            for (let i = 0; i < str.length; i++) {
-                if(str[i] == str[i].toUpperCase() && !Number.isInteger(Number(str[i])))
-                    return true;
-            }
-            return false;
+            // for (let i = 0; i < str.length; i++) {
+            //     if(str[i] == str[i].toUpperCase() && !Number.isInteger(Number(str[i])))
+            //         return true;
+            // }
+            // return false;
+            return str.split('').some(item => item == item.toUpperCase());
         }
         function hasLowerLetter(str) {
-            for (let i = 0; i < str.length; i++) {
-                if(str[i] == str[i].toLowerCase())
-                    return true;
-            }
-            return false;
+            // for (let i = 0; i < str.length; i++) {
+            //     if(str[i] == str[i].toLowerCase() && !Number.isInteger(Number(str[i])))
+            //         return true;
+            // }
+            // return false;
+            return str.split('').some(item => item == item.toLowerCase());
         }
         function hasDigit(str) {
-            for (let i = 0; i < str.length; i++) {
-                if(Number.isInteger(Number(str[i])))
-                    return true;
-            }
-            return false;
+            // for (let i = 0; i < str.length; i++) {
+            //     if(Number.isInteger(Number(str[i])))
+            //         return true;
+            // }
+            // return false;
+            return str.split('').some(item => !item == Number.isInteger(Number(item)));
         }
 
         function getUnsecurePass() {
