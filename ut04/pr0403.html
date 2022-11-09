@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR0403</title>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et ligula dapibus, accumsan tortor vitae, gravida nunc. Nullam nisi justo, hendrerit quis arcu in, venenatis finibus ex. Aliquam suscipit turpis in auctor dapibus. Curabitur auctor tellus et porta aliquam. Morbi pretium hendrerit purus, sed luctus augue. Etiam varius purus eu ullamcorper consequat. Nam in posuere leo, eget ultrices leo. Cras sit amet <a href="https://www.google.com">tempor urna</a>. Nam tincidunt diam vitae diam scelerisque commodo. Sed lobortis dolor nulla, ut volutpat libero rhoncus sed. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi nec metus in tellus commodo porta sed ut diam.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et ligula dapibus, accumsan tortor vitae, gravida nunc. 
+    </p>
+    <p>
+        <a href="https://www.google.es">Lorem ipsum dolor</a> sit amet, consectetur adipiscing elit. Morbi et ligula dapibus, accumsan tortor vitae, gravida nunc. Nullam nisi justo, hendrerit quis arcu in, venenatis finibus ex. Aliquam suscipit turpis in auctor dapibus. Curabitur auctor tellus et porta aliquam. Morbi pretium hendrerit purus, sed luctus augue. Etiam varius purus eu ullamcorper consequat. 
+    </p>
+    <ul>
+        <li>Primero</li>
+        <li>Segundo</li>
+        <li><a href="https://www.google.com">Tercero</a></li>
+    </ul>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et ligula dapibus, accumsan tortor vitae, gravida nunc. Nullam nisi justo, hendrerit quis arcu in, venenatis finibus ex. Aliquam suscipit turpis in auctor dapibus.
+    </p>
+
+    <div>
+        Número de párrafos en la página: <span id="parrafos"></span>
+    </div>
+    <div>
+        Dirección a la que enlaza el segundo enlace: <span id="segundo-enlace"></span>
+    </div>
+    <div>
+        Número de enlaces que apuntan a https://www.google.es: <span id="links-google-es"></span>
+    </div>
+    <div>
+        Número de palabras del segundo párrafo: <span id="palabras-segundo-parrafo"></span>
+    </div>
+    
+    <script>
+        let parrafos = document.querySelectorAll("p");
+        let enlaces = document.querySelectorAll("a");
+
+        let cantidadParafos = parrafos.length;
+        document.getElementById("parrafos").append(cantidadParafos);
+
+        let penultimoEnlace = enlaces[enlaces.length-2].getAttribute("href");
+        document.getElementById("segundo-enlace").append(penultimoEnlace);
+
+        let cantidadEnlacesGoogleES = 0;
+        enlaces.forEach(item => {
+            if(item["href"] == "https://www.google.es/")
+                cantidadEnlacesGoogleES++;
+        });
+        document.getElementById("links-google-es").append(cantidadEnlacesGoogleES);
+
+        let palabrasSegundoParrafo = 1;
+        parrafos[1].textContent.trim().split('').forEach(item =>{
+            if(item == " ")
+                palabrasSegundoParrafo++;
+        });
+        document.getElementById("palabras-segundo-parrafo").append(palabrasSegundoParrafo);
+        
+        
+    </script>
+        
+    
+</body>
+</html>

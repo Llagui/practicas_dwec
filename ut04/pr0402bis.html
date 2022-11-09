@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* h1{
+            text-align: center;
+        }
+        
+        .month{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .month-number{
+            color: black;
+        }
+        .month-name{
+            color: wheat;
+        } */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+        }
+        #months {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .month {
+            display: flex;
+            align-items: center;
+            font-size: 2em;
+            margin: 3px;
+            width: 500px;
+            height: 45px;
+            background-color: darkseagreen;
+            color: white;
+        }
+
+        .month-number {
+            width: 50px;
+            background-color: darkgreen;
+            text-align: center;
+        }
+
+        .month-name {
+            width: 450px;
+            padding-left: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>PR0402</h1>
+    <div id="months"></div>
+    <script>
+        let meses = Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        // let content = document.createElement("div");
+        // content.id = "months";
+        //document.body.append(content);
+        let content = document.getElementById("months");
+
+        for (let i = 0; i < 12; i++) {
+            let nodo = document.createElement("div");
+            nodo.classList.add("month");
+
+            let number = document.createElement("div");
+            number.classList.add("month-number");
+            number.textContent = i+1;
+            let mes = document.createElement("div");
+            mes.classList.add("month-name");
+            mes.textContent = meses[i];
+
+            nodo.append(number);
+            nodo.append(mes);
+            content.append(nodo);
+        }
+        
+    </script>
+</body>
+</html>

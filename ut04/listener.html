@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            float: left;
+            margin: 5px;
+            background-color: orange;
+            cursor: pointer;
+        }
+        .active{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <span id = "item1" class="item">1</span>
+    <span id = "item2" class="item">2</span>
+    <span id = "item3" class="item">3</span>
+    <script>
+        //let item2 = document.getElementById("item2");
+        // item2.addEventListener("click", () => {
+        //     item2.classList.toggle("active");
+        // });
+
+        let items = document.querySelectorAll(".item");
+        items.forEach((item) => {
+            item.addEventListener("click", (e) => e.target.classList.toggle("active"));
+            // () => {
+            //     item.classList.toggle("active");
+            // });
+        });
+        //funciones de un listener se pone de parametro event la propiedad target que devuelve el elemento del listener
+    </script>
+</body>
+</html>
