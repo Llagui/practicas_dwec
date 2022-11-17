@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Crear enlaces</h1>
+    <ul>
+        <li>Google</li>
+        <li>DuckDuckGo</li>
+        <li>Bing</li>
+        <li>Ecosia</li>
+        <li>WolframAlpha</li>
+    </ul>
+    <script>
+        let links = {
+            Google : "https://google.com",
+            DuckDuckGo : "https://duckduckgo.com",
+            Bing : "https://www.bing.com",
+            Ecosia : "https://www.ecosia.org/",
+            WolframAlpha : "https://www.wolframalpha.com/",
+        }
+        let navegadores = document.querySelectorAll("li");
+
+        navegadores.forEach(item => {
+            item.innerHTML = `<a href = ${links[item.textContent]}> ${item.textContent} </a>`;
+        })
+    </script>
+</body>
+</html>
