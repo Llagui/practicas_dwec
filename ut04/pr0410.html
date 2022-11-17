@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id = "hola">
+    <center>
+    <button id="btn">Cambiar fondo</button>
+    </center>
+    <script>
+        let boton = document.getElementById("btn");
+        
+        boton.addEventListener("click", (e) =>{
+            let color = [];
+            for (let i = 0; i < 3; i++) {
+                color[i] = Math.floor(Math.random() * 255);
+            }
+            document.getElementsByTagName("body")[0].setAttribute('style', `background-color: rgb(${color[0]},${color[1]},${color[2]})`);
+        });
+    </script>
+</body>
+</html>

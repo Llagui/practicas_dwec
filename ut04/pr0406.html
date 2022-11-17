@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeWars</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .images{
+            display:flex;
+            justify-content: center;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+        }
+        button{
+            display: block;
+            margin: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Práctica PR0406</h1>
+
+    <div class="images">
+        <img src="https://vgonzalez165.github.io/dwec/assets/pr0406/mountain_1.jpg" alt="1"/>
+        <img src="https://vgonzalez165.github.io/dwec/assets/pr0406/mountain_2.jpg" alt="2"/>
+        <img src="https://vgonzalez165.github.io/dwec/assets/pr0406/mountain_3.jpg" alt="3"/>
+        <img src="https://vgonzalez165.github.io/dwec/assets/pr0406/mountain_4.jpg" alt="4"/>
+        <img src="https://vgonzalez165.github.io/dwec/assets/pr0406/mountain_5.jpg" alt="5"/>
+    </div>
+    <button id="btn">Mover derecha</button>
+
+
+    <script>
+        let boton = document.getElementById("btn");
+        let contenedor = document.getElementsByClassName("images")[0];
+
+        boton.addEventListener("click", (e) =>{
+            let images = document.querySelectorAll("img");
+            contenedor.prepend(images[4]);
+        });
+    </script>
+</body>
+</html>
