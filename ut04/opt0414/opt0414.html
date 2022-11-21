@@ -197,7 +197,7 @@
 
                 if(añadirProducto){
                     let fruta = {
-                        ...listProducts.filter(item => item['id'] == id)[0],
+                        ...listProducts.find(item => item['id'] == id),
                         cant: 1,
                     };
                     carro.push(fruta);

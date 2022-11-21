@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="./yoda-icon.png">
+    <link rel="icon" type="image/png" href="./yoda-icon.png">
+    <title>Examen DWEC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <div>
+                <h1>Examen DWEC</h1>
+                <h2>Primera evaluación - 18/11/2022</h2>
+            </div>
+            <img src="./header.jpg" />
+        </div>
+        <div id="main">
+            <div id="people-list">
+                <div id="filter">
+                    <input type="text" id="filter-text">
+                    <div class="btn btn-filter">Filtrar</div>
+                </div>
+                <div id="people-list-header">
+                    <div id="header-name">Nombre</div>
+                    <div id="header-birth-year">Año nacimiento</div>
+                    <div id="header-homeworld">Planeta natal</div>
+                </div>
+                <div id="people-list-characters">
+                    <!--    
+                        // Para cada uno de los personajes
+                        <div class="character">
+                            <div class="character-name">XXXX</div>
+                            <div class="character-birth-year">XXXX</div>
+                            <div class="character-homeworld">XXXX</div> 
+                            <div class="btn btn-char">Detalle</div>
+                        </div>
+                    -->
+                </div>
+                <div id="pages">
+                    <!--
+                        <span class="first">Primera</span>
+                        <span class="prev">Anterior</span>
+                        <span>Página 1 de 7</span>
+                        <span class="next">Siguiente</span>
+                        <span class="last">Última</span>
+                    -->
+                </div>
+            </div>
+            <div id="people-detail">
+                <div id="detail-name"> </div>
+                <div id="detail-table">
+                    <div class="detail-row">
+                        <div>Altura:</div>
+                        <div id="height"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div>Peso:</div>
+                        <div id="mass"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div>Color de pelo</div>
+                        <div id="hair-color"></div>
+                        <div id="hair-color-filled"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div>Color de ojos:</div>
+                        <div id="eye-color"></div>
+                        <div id="eye-color-filled"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div>Fecha de nacimiento:</div>
+                        <div id="birth-year"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div>Planeta de nacimiento:</div>
+                        <div id="homeworld"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div>Población del planeta:</div>
+                        <div id="population"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="solucion.js"></script>
+</body>
+</html>
+
+
