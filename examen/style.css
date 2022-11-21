@@ -1,0 +1,221 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    background-color: #0E4152;
+    margin: 0;
+}
+
+.btn {
+    background-color: #0E4152;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 3px #0C7380;
+}
+
+.btn:hover {
+    background-color: #081922;
+    box-shadow: 2px 2px 3px #0C5A6A;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    height: 200px;
+    background-color: #0D0D0D;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+#header img {
+    height: 200px;
+}
+
+#header div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#header h1 {
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+}
+
+#header h2 {
+    color: #51C4C1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main {
+    display: flex;
+    justify-content: space-between;
+}
+
+#people-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    width: 45%;
+}
+
+#filter {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #51C4C1;
+}
+
+#filter input {
+    height: 30px;
+    width: 200px;
+    margin-right: 40px;
+}
+
+#filter .btn-filter {
+    height: 40px;
+    width: 120px;
+}
+
+#people-list-header {
+    display: flex;
+    height: 50px;
+    background-color: #12939A;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+#header-name, #header-birth-year, #header-homeworld {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.character {
+    display: flex;
+    height: 40px;
+    background-color: #B1E6CF;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.character-name, .character-birth-year, .character-homeworld {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header-name, .character-name {
+    width: 40%;
+}
+
+#header-birth-year, .character-birth-year {
+    width: 15%;
+}
+
+#header-homeworld, .character-homeworld {
+    width: 30%;
+}
+
+
+.btn-char {
+    width: 60px;
+    height: 24px;
+}
+
+.btn-char {
+    margin-top: 6px;
+}
+
+#pages {
+    background-color: #12939A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    color: white;
+}
+
+#pages span {
+    width: 120px;;
+    text-align: center;
+}
+
+#pages span:first-child, #pages span:last-child,
+#pages span:nth-child(2), #pages span:nth-child(4) {
+    cursor: pointer;
+}
+
+#pages span:first-child:hover, #pages span:last-child:hover,
+#pages span:nth-child(2):hover, #pages span:nth-child(4):hover {
+    font-weight: bold;
+}
+
+#people-detail {
+    background-color: #081922;
+    width: 45%;
+    margin-right: 40px;
+}
+
+#detail-name {
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+    background-color: #0C7380;
+    color: white;
+    height: 85px;
+}
+
+#detail-table {
+    padding: 40px;
+}
+
+.detail-row {
+    display: flex;
+}
+
+.detail-row div {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+.detail-row div:first-child {
+    background-color: #0C7380;
+    color: white;
+    width: 50%;
+}
+
+.detail-row div:nth-child(2) {
+    background-color: #51C4C1;
+    width: 50%;
+}
+
+.detail-row #eye-color, .detail-row #hair-color {
+    width: 35%;
+}
+
+.detail-row div:nth-child(3) {
+    background-color: #51C4C1;
+    width: 15%;
+}
