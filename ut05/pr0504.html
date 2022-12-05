@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html {
+            margin: 0;
+        }
+        #cont{
+            width: 100%;
+            background-color:aquamarine;
+            height: 100px;
+            font-size: 70px;
+            text-align: center;
+            
+        }
+        #recuadro{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .rojo{
+            position: relative;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont"></div>
+    <div id="recuadro"></div>
+    <script>
+        let cont = 0;
+        let max = 300;
+        let min = 100;
+        createCuadro();
+        
+        function createCuadro(){
+            document.getElementById("cont").innerHTML = cont;
+            let ancho = window.innerWidth ;
+            let alto = window.innerHeight - 100;
+            let rojo = document.createElement("div");
+            rojo.classList.add("rojo");
+            let distanciaIzda = ((ancho - max) * Math.random() ).toFixed(0);
+            let distanciaTop = ((alto - max)  * Math.random()).toFixed(0);
+            rojo.style.left = distanciaIzda+"px";
+            rojo.style.top = distanciaTop+"px";
+            // rojo.style.width = (Math.random() * ((ancho - distanciaIzda) - 100) + 100).toFixed(0)+"px";
+            // rojo.style.height = (Math.random() * ((alto - distanciaTop) - 100) + 100).toFixed(0)+"px";
+            rojo.style.width = (Math.random() * (max - min) + min).toFixed(0)+"px";
+            rojo.style.height = (Math.random() * (max - min) + min).toFixed(0)+"px";
+            let contenedor = document.getElementById("recuadro");
+            contenedor.append(rojo);
+            
+            rojo.addEventListener("click", (e)=>{
+                contenedor.innerHTML = "";
+                cont++;
+                createCuadro();
+            });
+        }
+    </script>
+</body>
+</html>

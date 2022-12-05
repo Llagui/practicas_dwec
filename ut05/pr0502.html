@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, td{
+            border: solid 2px;
+            padding: 10px;
+            border-collapse: collapse;
+        }
+        .selected{
+            background-color: gold;
+        }
+        .alwaysSelected{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor"></div>
+    <script>
+        let contenedor = document.querySelector("#contenedor");
+
+        let texto = '<tr>';
+        for (let i = 0; i < 100; i++) {
+            texto += i % 10 == 0 ? "</tr><tr>" : "";
+            texto += `<td onmousedown="return false">${i}</td>`;
+        }
+
+        let table = document.createElement("table");
+        table.innerHTML = texto;
+        contenedor.append(table);
+
+        contenedor.addEventListener('click', (e) =>{
+            if(e.target.nodeName == "TD"){
+                e.target.classList.toggle("selected");
+            }
+        })
+        
+        contenedor.addEventListener('contextmenu', (e) =>{
+            if(e.target.nodeName == "TD"){
+                e.target.classList.add("alwaysSelected");
+            }
+        })
+        contenedor.oncontextmenu = (() => false);
+    </script>
+</body>
+</html>

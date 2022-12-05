@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="score-board">
+        <div id="score-panel">
+            <div id="score-label">Puntuación</div>
+            <div id="score">0</div>
+        </div>
+        <div id="time-panel">
+            <div id="time-label">Tiempo</div>
+            <div id="time">0.0</div>
+        </div>
+        <div id="diff-panel">
+            <div id="diff-label">Dificultad</div>
+            <div id="diff">
+                <div class="diff-level selected">1</div>
+                <div class="diff-level">2</div>
+                <div class="diff-level">3</div>
+                <div class="diff-level">4</div>
+                <div class="diff-level">5</div>
+            </div>
+        </div>
+        <div id="player-panel">
+            <div id="player-label">Jugador</div>
+            <input id="player-input" type=text id="player"></input>
+        </div>
+        <div id="btn-panel">
+            <div class="btn" id="btn-start">Start</div>
+            <div class="btn" id="btn-reset">Reset</div>
+        </div>
+        <div id="ranking-panel">
+            <div id="ranking-label">Ranking</div>
+            <div id="ranking">
+                <div id="ranking-first" class="ranking-item">
+                    <span class="ranking-name"></span>
+                    <span class="ranking-score"></span>
+                </div>
+                <div id="ranking-second" class="ranking-item">
+                    <span class="ranking-name"></span>
+                    <span class="ranking-score"></span>
+                </div>
+                <div id="ranking-third" class="ranking-item">
+                    <span class="ranking-name"></span>
+                    <span class="ranking-score"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="game-zone"></div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

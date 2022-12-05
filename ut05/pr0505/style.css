@@ -1,0 +1,169 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    display: flex;
+}
+
+
+#game-zone {
+    width: calc(100vw - 350px);
+    height: 100vh;
+    background-color: #FCFCFC;
+}
+
+#score-board {
+    width: 350px;
+    height: 100vh;
+    background-color: #352B74;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#score-panel {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#score-label, #time-label, #diff-label, #player-label, #ranking-label {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}
+
+#score {
+    color: #9BBB3E;
+    font-size: 7em;
+    text-align: center;
+}
+
+
+#time {
+    color: #9BBB3E;
+    font-size: 4em;
+    text-align: center;
+}
+
+#diff-panel {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#diff {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    width: 270px;
+}
+
+.diff-level {
+    width: 40px;
+    height: 40px;
+    background-color: lightgray;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+#diff .selected {
+    background-color: chartreuse;
+}
+
+#player-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#player-input {
+    width: 270px;
+    height: 32px;
+    margin-top: 10px;
+    font-size: 1.3em;
+}
+
+#btn-panel {
+    display: flex;
+    justify-content: space-around;
+}
+.btn {
+    background-color: #BBB;
+    width: 95px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    box-shadow: 3px 3px 6px #111;
+    cursor: pointer;
+}
+
+#btn-start {
+    background-color: chartreuse;
+}
+
+#btn-start:hover {
+    background-color: rgb(105, 199, 11);
+}
+
+#btn-reset {
+    background-color:rgb(233, 75, 48);
+}
+
+#btn-reset:hover {
+    background-color:rgb(185, 54, 30);
+}
+
+.btn:hover {
+    background-color: #aaa;
+    box-shadow: 3px 3px 6px #000;
+}
+
+#ranking-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ranking {
+    width: 270px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.ranking-item {
+    background-color: white;
+    height: 32px;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.ranking-name {
+    width: 190px;
+    padding-left: 10px;
+}
+
+.ranking-score {
+    width: 80px;
+    text-align: center;
+
+}
+.rojo{
+    background-color: red;
+    position: relative;
+    cursor: pointer;
+}

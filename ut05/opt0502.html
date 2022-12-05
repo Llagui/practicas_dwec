@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td,
+        button {
+            width: 50px;
+            height: 50px;
+        }
+
+        input {
+            width: 150px;
+            height: 50px;
+        }
+
+        button {
+            height: 100%;
+            width: 100%;
+        }
+
+        #hola {
+            height: 105px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <table>
+            <!-- <tr>
+                <td>Numero 1</td>
+                <td id="num1"colspan="2"><input type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Numero 2</td>
+                <td id="num2" colspan="2"><input type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Operac</td>
+                <td id="operacion" colspan="2"><input type="text" disabled></td>
+            </tr> -->
+            <tr>
+                <td colspan="4"><input id="pantalla" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td><button onclick="poner('+')">+</button></td>
+                <td><button onclick="poner('-')">-</button></td>
+                <td><button onclick="poner('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="poner('/')">/</button></td>
+                <td><button onclick="poner('^')">^</button></td>
+                <td><button onclick="poner('√')">√</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="poner(7)">7</button></td>
+                <td><button onclick="poner(8)">8</button></td>
+                <td><button onclick="poner(9)">9</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="poner(4)">4</button></td>
+                <td><button onclick="poner(5)">5</button></td>
+                <td><button onclick="poner(6)">6</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="poner(1)">1</button></td>
+                <td><button onclick="poner(2)">2</button></td>
+                <td><button onclick="poner(3)">3</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="poner(0)">0</button></td>
+                <td><button onclick="poner('.')">.</button></td>
+                <td rowspan="2" id="hola"><button onclick="hacerOperacion()">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="2"><button onclick="clear1()">Clear</button></td>
+            </tr>
+        </table>
+    </center>
+</body>
+<script>
+    let num1 = '';
+    let num2 = '';
+    let pantalla = document.getElementById("pantalla");
+    clear1();
+
+    document.getElementsByTagName("body")[0].addEventListener("keyup", (e) => {
+        if (Number.isInteger(parseInt(e.key))) {
+            poner(parseInt(e.key));
+        } else if ('*./-+^'.includes(e.key)) {
+            poner(e.key);
+        }
+        console.log(e.key);
+        console.log('*./-+^'.includes(e.key));
+
+    });
+
+    function clear1() {
+        pantalla.value = '';
+        num1 = '';
+        num2 = '';
+    }
+
+    function poner(num) {
+        console.log(num1);
+        console.log(num2);
+        if (Number.isInteger(num) || num == '.') {
+            pantalla.value += num;
+            num1 += num;
+        } else {
+            if (num1 != '' && num2 != '') {
+                hacerOperacion();
+            } else {
+                if (num2 == '' && num1 != '') {
+                    num2 = parseFloat(num1);
+                    num1 = '';
+                    if (num == '√') {
+                        num1 = 2;
+                        pantalla.value = `${num1}√${num2}`;
+                    } else {
+                        pantalla.value = `${num2}${num}`;
+                    }
+                }
+            }
+        }
+    }
+
+    function hacerOperacion() {
+        if (num1 != '' && num2 != '') {
+            let operacion = pantalla.value;
+            operacion = operacion.replaceAll('^', '**');
+            operacion = operacion.replaceAll(`${num1}√${num2}`, `${num2}**1/${num1}`);
+            pantalla.value = eval(operacion);
+            num1 = eval(operacion);
+            num2 = '';
+        }
+    }
+</script>
+
+</html>
