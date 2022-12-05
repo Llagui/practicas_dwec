@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let pagina = document.documentElement;
+        let altoFotos = (pagina.clientHeight / 2).toFixed(0);
+        let anchoFotos = pagina.clientWidth;
+        let body = document.getElementsByTagName("body")[0];
+        let creandoImagenes = false;
+        window.addEventListener("scroll", createImages);
+        createImages();
+
+        function createImages() {
+            window.removeEventListener("scroll", createImages);
+            if ((pagina.scrollTop + pagina.clientHeight) > (pagina.scrollHeight - altoFotos) && !creandoImagenes) {
+                get5Images();
+            }
+            window.addEventListener("scroll", createImages);
+        }
+
+        function get5Images() {
+            creandoImagenes = true;
+            let center = document.createElement('center');
+            let img = document.createElement('img');
+            img.id = 'cargando';
+            img.setAttribute('src', 'https://vgonzalez165.github.io/dwec/assets/opt0501/loading.gif');
+            center.append(img);
+            body.append(center);
+
+            setTimeout(() => {
+                for (let i = 0; i < 5; i++) {
+                    body.innerHTML += '<img src="https://picsum.photos/' + anchoFotos + '/' + altoFotos + '">';
+                }
+                document.getElementById("cargando").outerHTML = '';
+                creandoImagenes = false;
+            }, 2000);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

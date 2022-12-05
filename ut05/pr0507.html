@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h1>Introduzca los datos</h1>
+
+        <form action="pr0507.html" method="post">
+            <table>
+                <tr>
+                    <td>Correo electronico: </td>
+                    <td><input type="text" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td>Contraseña: </td>
+                    <td><input type="text" name="contraseña" id="contraseña" disabled></td>
+                    
+                </tr>
+                <tr>
+                    <td>Repita contraseña: </td>
+                    <td><input type="text" name="repContraseña" id="repContrasena" disabled></td>
+                </tr>
+            </table>
+            <input type="submit" value="Enviar" id = "enviar" disabled>
+            <div id="seguridadContra"></div>
+            <div id="error"></div>
+        </form>
+    </center>
+
+    <script>
+        function hasUpperLetter(str) {
+            return str.split('').some(item => 'QWERTYUIOPASDFGHJKLÑZXCVBNM'.includes(item));
+        }
+        function hasLowerLetter(str) {
+            return str.split('').some(item => 'qwertyuiopasdfghjklñzxcvbnm'.includes(item));
+        }
+        function hasDigit(str) {
+            return str.split('').some(item => '1234567890'.includes(item));
+        }
+        function hasSpecialCharacter(str) {
+            return str.split('').some(item => '|@#€¬[]{}ç!"·$%&/()=?¿+-.,;:_*'.includes(item));
+        }
+
+        let inputEmail = document.getElementById("email");
+        inputEmail.value = '';
+        let inputContraseña = document.getElementById("contraseña");
+        inputContraseña.value = '';
+        let inputRepContraseña = document.getElementById("repContrasena");
+        inputRepContraseña.value = '';        
+
+        inputEmail.addEventListener("change", () => {
+            if (inputEmail.value.includes('@') && inputEmail.value.includes('.')) {
+                inputEmail.style.color = 'green';
+                document.getElementById('error').textContent = "";
+                inputContraseña.disabled = false;
+                inputRepContraseña.disabled = false;
+            } else {
+                inputEmail.style.color = 'red';
+                document.getElementById('error').textContent = "Error en el email";
+                inputContraseña.disabled = true;
+                inputRepContraseña.disabled = true;
+            }
+        });
+        
+        contraseña.addEventListener("input", () =>{
+            let seguridad = document.getElementById("seguridadContra");
+            let contraseña = inputContraseña.value;
+            let seguridadContraseña = 0;
+            
+            //Valoracion contraseñas segun contenido
+            console.log(hasLowerLetter(contraseña));
+            seguridadContraseña += hasLowerLetter(contraseña) ? 1 : 0;
+            seguridadContraseña += hasUpperLetter(contraseña) ? 1 : 0;
+            seguridadContraseña += hasDigit(contraseña) ? 1 : 0;
+            seguridadContraseña += hasSpecialCharacter(contraseña) ? 2 : 0;
+            
+            //Valoracion contraseña segun longitud
+            seguridadContraseña += Math.round(contraseña.length/4);
+
+            seguridad.textContent = (seguridadContraseña < 5) ? "debil" :
+                            (seguridadContraseña < 6) ? "normal" :
+                            (seguridadContraseña < 8) ? "segura" :
+                            (seguridadContraseña < 10) ? "muy segura" :
+                            "muy muy segura";
+        });
+
+        inputRepContraseña.addEventListener("change", () => {
+            let error = document.getElementById('error');
+            if (inputRepContraseña.value != contraseña.value) {
+                error.textContent = 'Contraseñas no son iguales';
+            } else {
+                error.textContent = '';
+                document.getElementById('enviar').disabled = false;
+                
+            }
+        });
+    </script>
+</body>
+
+</html>

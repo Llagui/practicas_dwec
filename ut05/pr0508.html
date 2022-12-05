@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h1>Introduzca los datos</h1>
+
+        <form action="pr0508.html" method="post">
+            <table>
+                <tr>
+                    <td>CCAA: </td>
+                    <td><select name="CCAA" id="CCAA"></select></td>
+                </tr>
+                <tr>
+                    <td>Provincia: </td>
+                    <td><select name="provincia" id="provincia" disabled></select></td>
+
+                </tr>
+                <tr>
+                    <td>Localidad: </td>
+                    <td><select name="localidad" id="localidad" disabled></select></td>
+                </tr>
+            </table>
+            <input type="submit" value="Enviar" id="enviar">
+        </form>
+    </center>
+    <script>
+        let datos = {
+            '': {},
+            'Galicia': {
+                '': [],
+                'Lugo': ['','Lugo', 'Foz'],
+                'Pontevedra': ['','Pontevedra', 'Vigo'],
+                'Coruña': ['','A coruña', 'Santiago'],
+                'Orense': ['','Orense', 'Verin'],
+            },
+            'Pais Vasco': {
+                '': [],
+                'Guipuzcua': ['','San Sebastian', 'Irun'],
+                'Vizcaya': ['','Bilbao', 'Portugalete'],
+                'Alaba': ['','Vitoria', 'Salvatierra'],
+            },
+            'Leon': {
+                '': [],
+                'Leon': ['','Leon', 'Ponferrada'],
+                'Zamora': ['','Zamora', 'Toro'],
+                'Salamanca': ['','Salamanca', 'Ciudad Rodrigo'],
+            },
+        };
+
+        let CCAA = document.getElementById("CCAA");
+        let provincia = document.getElementById("provincia");
+        let localidad = document.getElementById("localidad");
+
+        Object.keys(datos).forEach(element => {
+            CCAA.innerHTML += `<option>${element}</option>`;
+        });
+
+        CCAA.addEventListener('change', () => {
+            provincia.innerHTML ='';
+            if (CCAA.value != '') {
+                provincia.disabled = false;
+                Object.keys(datos[CCAA.value]).forEach(element => {
+                    provincia.innerHTML += `<option>${element}</option>`;
+                });
+            } else {
+                provincia.disabled = true;
+                localidad.disabled = true;
+            }
+
+        });
+
+        provincia.addEventListener('change', () => {
+        
+            localidad.innerHTML = '';
+            localidad.disabled = (provincia.value != '') ? false : true;
+            datos[CCAA.value][provincia.value].forEach(element => {
+                localidad.innerHTML += `<option>${element}</option>`;
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

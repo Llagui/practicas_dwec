@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, td{
+            border: solid 2px;
+            padding: 10px;
+            border-collapse: collapse;
+        }
+        .selected{
+            background-color: gold;
+        }
+        .alwaysSelected{
+            background-color: red;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor"></div>
+    <div id="casilla"></div>
+    <script>
+        let contenedor = document.querySelector("#contenedor");
+        let texto = "";
+        let cont = 0;
+        for (let i = 0; i < 10; i++) {
+            texto += "<tr>";
+                for (let j = 0; j < 10; j++) {
+                    texto += `<td onmousedown="return false" data-x ="${i}" data-y =" ${j}">${cont}</td>`;
+                    cont++;
+                }
+            texto += "</tr>";
+        }
+
+        let table = document.createElement("table");
+        table.innerHTML = texto;
+        contenedor.append(table);
+
+        contenedor.addEventListener('click', (e) =>{
+            if(e.target.nodeName == "TD"){
+                e.target.classList.toggle("selected");
+                document.getElementById("casilla").innerHTML = "X:"+e.target.dataset.x +" Y:"+e.target.dataset.y;
+                // document.getElementById("casilla").innerHTML = "X:"+e.clientX +" Y:"+e.clientY;
+                // document.getElementById("casilla").innerHTML = "distancia izda:"+e.target.offsetLeft +" distancia arriba:"+e.target.offsetTop;
+            }
+        });
+        contenedor.addEventListener('contextmenu', (e) =>{
+            if(e.target.nodeName == "TD"){
+                e.target.classList.add("alwaysSelected");
+                document.getElementById("casilla").innerHTML = "X:"+e.target.dataset.x +" Y:"+e.target.dataset.y;
+                // document.getElementById("casilla").innerHTML = "X:"+e.clientX +" Y:"+e.clientY;
+                // document.getElementById("casilla").innerHTML = "distancia izda:"+e.target.offsetLeft +" distancia arriba:"+e.target.offsetTop;
+            }
+            
+        });
+        contenedor.oncontextmenu = (() => false);
+    </script>
+</body>
+</html>
