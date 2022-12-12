@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #formularios {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="formularios" style="z-index:-1">
+        <div style="position: fixed; top:40%; left:40%; background-color: white; padding: 10px;">
+            <div>
+                <button onclick="login()">Login</button>
+                <button onclick="register()">Register</button>
+                <button onclick="close2()">X</button>
+            </div>
+            <div id="contenido">
+            </div>
+            <div id='errorEmail'></div>
+            <div id='errorContraseña'></div>
+        </div>
+    </div>
+    <div style="z-index:0">
+        <button onclick="crearVentana()">Login/Register</button>
+    </div>
+    <script>
+
+        function crearVentana() {
+            let div = document.getElementById('formularios');
+            div.style = `background-color: rgb(0, 0, 0, 0.4);
+                        z-index: 1;
+                        position: fixed;
+                        width:100vw;
+                        height: 100vh;
+                        top:0;
+                        left:0;
+                        display: flex;`;
+            document.getElementsByTagName('body')[0].append(div);
+            login();
+
+        }
+
+        function register() {
+            document.getElementById('contenido').innerHTML = `
+                <form action="" method="get">
+                    Name <br>
+                    <input type="text" name="name" id="name" ><br>
+                    Email <br>
+                    <input type="text" name="email" id="email" ><br>
+                    Contraseña <br>
+                    <input type="text" name="contraseña" id="contraseña" ><br>
+                    <br>
+                    <button onclick="registrar()" id= "Registrar" disabled>Registrar</button>
+                </form>
+            `;
+
+            comprobar();
+        }
+
+        function login() {
+            document.getElementById('contenido').innerHTML = `
+                <form action="" method="get">
+                    Email <br>
+                    <input type="text" name="email" id="email" ><br>
+                    Contraseña <br>
+                    <input type="text" name="contraseña" id="contraseña" ><br>
+                     
+                    <input type="checkbox" name="remember" id="remember" >
+                    <label for="remember">Remember me</label>
+                    <br>
+                    <button onclick="enviar2()" id = "enviar" disabled>Enviar</button>
+                </form>
+            `;
+            comprobar();
+
+        }
+
+        function close2() {
+            let div = document.getElementById('formularios');
+            div.style = "display: none;";
+        }
+
+        function enviar2() {
+            close2();
+        }
+
+        function comprobar() {
+            let emailCorrecto = false;
+            let contraseñaCorrecta = false;
+            let inputEmail = document.getElementById('email');
+            inputEmail.addEventListener("change", () => {
+                if (inputEmail.value.includes('@') && inputEmail.value.includes('.') && inputEmail.value.textContent != '') {
+                    document.getElementById('errorEmail').textContent = "";
+                    emailCorrecto = true;
+
+                    if (contraseñaCorrecta) {
+                        document.getElementById('enviar').disabled = false;
+                    }
+                } else {
+                    document.getElementById('errorEmail').innerHTML += "<p>Error en el email</p>";
+                }
+            });
+
+
+            let inputContraseña = document.getElementById('contraseña');
+            inputContraseña.addEventListener("change", () => {
+                if (inputContraseña.value.length > 8 && inputContraseña.value.textContent != '') {
+                    document.getElementById('errorContraseña').textContent = "";
+                    contraseñaCorrecta = true;
+                    if (emailCorrecto) {
+                        document.getElementById('enviar').disabled = false;
+                    }
+                } else {
+                    document.getElementById('errorContraseña').innerHTML += "<p>Contraseña corta</p>";
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
