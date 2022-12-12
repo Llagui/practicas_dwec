@@ -28,7 +28,7 @@
                     <td><select name="localidad" id="localidad" disabled></select></td>
                 </tr>
             </table>
-            <input type="submit" value="Enviar" id="enviar">
+            <input type="submit" value="Enviar" id="enviar" disabled>
         </form>
     </center>
     <script>
@@ -36,22 +36,22 @@
             '': {},
             'Galicia': {
                 '': [],
-                'Lugo': ['','Lugo', 'Foz'],
-                'Pontevedra': ['','Pontevedra', 'Vigo'],
-                'Coruña': ['','A coruña', 'Santiago'],
-                'Orense': ['','Orense', 'Verin'],
+                'Lugo': ['', 'Lugo', 'Foz'],
+                'Pontevedra': ['', 'Pontevedra', 'Vigo'],
+                'Coruña': ['', 'A coruña', 'Santiago'],
+                'Orense': ['', 'Orense', 'Verin'],
             },
             'Pais Vasco': {
                 '': [],
-                'Guipuzcua': ['','San Sebastian', 'Irun'],
-                'Vizcaya': ['','Bilbao', 'Portugalete'],
-                'Alaba': ['','Vitoria', 'Salvatierra'],
+                'Guipuzcua': ['', 'San Sebastian', 'Irun'],
+                'Vizcaya': ['', 'Bilbao', 'Portugalete'],
+                'Alaba': ['', 'Vitoria', 'Salvatierra'],
             },
             'Leon': {
                 '': [],
-                'Leon': ['','Leon', 'Ponferrada'],
-                'Zamora': ['','Zamora', 'Toro'],
-                'Salamanca': ['','Salamanca', 'Ciudad Rodrigo'],
+                'Leon': ['', 'Leon', 'Ponferrada'],
+                'Zamora': ['', 'Zamora', 'Toro'],
+                'Salamanca': ['', 'Salamanca', 'Ciudad Rodrigo'],
             },
         };
 
@@ -64,7 +64,7 @@
         });
 
         CCAA.addEventListener('change', () => {
-            provincia.innerHTML ='';
+            provincia.innerHTML = '';
             if (CCAA.value != '') {
                 provincia.disabled = false;
                 Object.keys(datos[CCAA.value]).forEach(element => {
@@ -73,17 +73,19 @@
             } else {
                 provincia.disabled = true;
                 localidad.disabled = true;
+                localidad.value = '';
             }
 
         });
 
         provincia.addEventListener('change', () => {
-        
             localidad.innerHTML = '';
             localidad.disabled = (provincia.value != '') ? false : true;
             datos[CCAA.value][provincia.value].forEach(element => {
                 localidad.innerHTML += `<option>${element}</option>`;
             });
+            document.getElementById('enviar').disabled = false;
+            
         });
 
 
