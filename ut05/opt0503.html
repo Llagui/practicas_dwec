@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: solid 1px;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+            width: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>No terminado</h1>
+    <table>
+        <tr id="0">
+            <td id="00"></td>
+            <td id="01"></td>
+            <td id="02"></td>
+            <td id="03"></td>
+        </tr>
+        <tr id="1">
+            <td id="10"></td>
+            <td id="11"></td>
+            <td id="12"></td>
+            <td id="13"></td>
+        </tr>
+        <tr id="2">
+            <td id="20"></td>
+            <td id="21"></td>
+            <td id="22"></td>
+            <td id="23"></td>
+        </tr>
+        <tr id="3">
+            <td id="30"></td>
+            <td id="31"></td>
+            <td id="32"></td>
+            <td id="33"></td>
+        </tr>
+    </table>
+
+    <script>
+        let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        let casilla;
+        let div;
+        let casillaBlanco = '33';
+        let num = 0;
+        numeros = numeros.sort(() => 0.5 - Math.random());
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++,num++) {
+                casilla = (i + '') + (j + '');
+                div = document.createElement('div');
+                div.textContent = numeros[num];
+                div.classList.add(casilla);
+
+                div.addEventListener('click', () => {
+                    if (isAdjentent()) {
+                        swapCells();
+                    }
+                });
+                document.getElementById(casilla).append(div);
+            }
+        }
+        function isAdjentent(a, b) {
+            
+        }
+        function swapCells(a, b) {
+
+        }
+    </script>
+</body>
+
+</html>
