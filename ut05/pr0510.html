@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <!-- <form action="" method="post"> -->
+            Fecha<br>
+            <input type="text" name="fecha" id="fecha"><br>
+            <div id='errorFecha'> </div>
+            Telefono<br>
+            <input type="text" name="telefono" id="telefono"><br>
+            <div id='errorTelefono'> </div>
+            Mail<br>
+            <input type="text" name="mail" id="mail"><br>
+            <div id='errorMail'> </div>
+            Color<br>
+            <input type="text" name="color" id="color"><br>
+            <div id='errorColor'> </div>
+            IP<br>
+            <input type="text" name="ip" id="ip"><br>
+            <div id='errorIp'> </div>
+            URL<br>
+            <input type="text" name="url" id="url"><br>
+            <div id='errorUrl'> </div>
+            Contraseña<br>
+            <input type="text" name="contraseña" id="contraseña"><br>
+            <div id='errorContra'> </div>
+            NIF<br>
+            <input type="text" name="nif" id="nif"><br>
+            <div id='errorNif'> </div>
+            Matricula<br>
+            <input type="text" name="matricula" id="matricula"><br>
+            <div id='errorMatricula'> </div>
+        <!-- </form> -->
+    </center>
+    <script>
+
+        let fecha = document.getElementById('fecha');
+        let telefono = document.getElementById('telefono');
+        let mail = document.getElementById('mail');
+        let color = document.getElementById('color');
+        let ip = document.getElementById('ip');
+        let url = document.getElementById('url');
+        let contraseña = document.getElementById('contraseña');
+        let nif = document.getElementById('nif');
+        let matricula = document.getElementById('matricula');
+
+        fecha.addEventListener("change", () => {
+            let divError = document.getElementById('errorFecha');
+            if (fecha.value.match(/((3[01])|([21][0-9])|(0[1-9]))\/((1[0-2])|(0[1-9]))\/[1-9]([0-9]){0,3}/) == null) {
+                divError.textContent = ' Error en fecha ';
+            } else {
+                divError.textContent = '';
+            }
+        });
+
+        telefono.addEventListener("change", () => {
+            let divError = document.getElementById('errorTelefono');
+            if (telefono.value.match(/^\(\+34\)( )?[0-9]{3}( )?[0-9]{3}( )?[0-9]{3}$/) == null) {
+                divError.textContent = ' Error en telefono ';
+            } else {
+                divError.textContent = '';
+            }
+        });
+
+        mail.addEventListener("change", () => {
+            let divError = document.getElementById('errorMail');
+            if (mail.value.match(/^[-\w]+@\w+(\.[\w]{2,}){1,2}$/) == null) {
+                divError.textContent = ' Error en mail ';
+            } else {
+                divError.textContent = '';
+            }
+        });
+
+        color.addEventListener("change", () => {
+            let divError = document.getElementById('errorColor');
+            if (color.value.match(/^#[0-9a-f]{6}$/i) == null) {
+                divError.textContent = ' Error en color ';
+            } else {
+                divError.textContent = '';
+            }
+        });
+
+        ip.addEventListener("change", () => {
+            let divError = document.getElementById('errorIp');
+            if (ip.value.match(/^(((25[0-5])|(2[0-4][0-9])|(1[0-9][0-9])|([1-9][0-9])|([0-9]))\.){3}((25[0-5])|(2[0-4][0-9])|(1[0-9][0-9])|([1-9][0-9])|([0-9]))$/) == null) {
+                divError.textContent = ' Error en ip ';
+            } else {
+                divError.textContent = '';
+            }
+        });
+
+        url.addEventListener("change", () => {
+            let divError = document.getElementById('errorUrl');
+            if (url.value.match(/^http(s)?:\/\/(www\.)?google\.(es|com)$/) == null) {
+                divError.textContent = ' Error en url ';
+            } else {
+                divError.textContent = '';
+            }
+        });
+
+        contraseña.addEventListener("change", () => {
+            let divError = document.getElementById('errorContra');
+            if (contraseña.value.match(/.*[a-z].*/) != null && contraseña.value.match(/.*[A-Z].*/) != null && contraseña.value.match(/.*[0-9].*/) != null && contraseña.value.match(/.{8,}/) != null) {
+                divError.textContent = '';
+            } else {
+                divError.textContent = ' Error en contraseña ';
+            }
+        });
+
+        nif.addEventListener("change", () => {
+            let divError = document.getElementById('errorNif');
+            // /(\d{7,8})array(\1%24)/
+            if (nif.value.match(/^\d{7,8}[A-Z]$/) == null) {
+                divError.textContent = ' Error en nif ';
+            } else {
+                divError.textContent = '';
+            }
+        });
+
+        matricula.addEventListener("change", () => {
+            let divError = document.getElementById('errorMatricula');
+            if (matricula.value.match(/^[0-9]{4}[A-Z]{3}$/) == null) {
+                divError.textContent = ' Error en matricula ';
+            } else {
+                divError.textContent = '';
+            }
+        });
+    </script>
+</body>
+
+</html>

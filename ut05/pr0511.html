@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Texto con fechas<br>
+    <textarea name="fecha" id="fecha" cols="100" rows="10"></textarea>
+    <div id='errorFecha'> </div>
+    <script>
+        let meses = ['','Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+        let fecha = document.getElementById('fecha');
+        fecha.addEventListener("change", () => {
+            // let fechas = fecha.value.replace(/(3[01]|[21][0-9]|0[1-9])\/(1[0-2]|0[1-9])\/([1-9][0-9]{0,3})/g, ` $1 del $2 del $3`);
+            fecha.value = fecha.value.replace(/(3[01]|[21][0-9]|0[1-9])\/(1[0-2]|0[1-9])\/([1-9][0-9]{0,3})/g, function(x) {
+                let fecha = x.split('/');
+                return `${fecha[0]} de ${meses[Number.parseInt(fecha[1])]} del ${fecha[2]}`;
+            });
+        });
+
+    </script>
+</body>
+
+</html>

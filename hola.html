@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>hola hola hao asfdg aer fh aedghh Hola</div>
+    <script>
+        let palabraBuscar = prompt("Pon la palabra a buscar");
+        let div = document.getElementsByTagName("div")[0];
+        let palabras = div.innerHTML.split(' ');
+
+        for (let i = 0; i < palabras.length; i++) {
+            if (palabras[i].toLowerCase() == palabraBuscar) {
+                palabras[i] = `<mark>${palabras[i]}</mark>`;
+            }
+        } 
+
+        div.innerHTML = palabras.join(' ');
+    </script>
+</body>
+</html>
