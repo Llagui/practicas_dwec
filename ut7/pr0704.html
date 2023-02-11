@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <h1>Introduzca los datos</h1>
+        Latitud<input type="number" name="lat" id="lat"><br>
+        Longuitud <input type="number" name="lon" id="lon"><br>
+        Clave Api <input type="text" name="key" id="key"><br><br>
+        <button id="enviar">Enviar</button>
+
+        <br><br>
+        <div id="descripcion">
+        </div>
+    </center>
+    <script>
+        document.getElementById("enviar").addEventListener('click', () => {
+            let lat = document.getElementById("lat").value;
+            let lon = document.getElementById("lon").value;
+            let key = document.getElementById("key").value;
+            document.getElementById("lat").value = '';
+            document.getElementById("lon").value = '';
+            document.getElementById("key").value = '';
+            console.log(document.getElementById('descripcion'));
+
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&lang=es`)
+                .then((response) => response.json())
+                .then(function (json) {
+                    console.log(json.weather[0]);
+                    document.getElementById('descripcion').textContent = json.weather[0].description;
+                })
+                .catch((error) => console.log(error));
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiempo</title>
+    <style>
+        .campo {
+            width: 200px;
+            height: 30px;
+            padding: 0;
+            border-radius: 20px;
+        }
+
+        .boton {
+            width: 150px;
+            height: 40px;
+            border-radius: 20px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .azul {
+            background-color: #BFEFFF;
+            width: 300px;
+            padding: 25px;
+            border-radius: 25px;
+            border: solid 2px;
+            margin: 20px;
+        }
+
+        label,
+        #descripcion p {
+            font-size: 20px;
+        }
+
+
+        #descripcion p img {
+            height: 25px;
+            width: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="consulta" class="azul">
+            <h1>Tiempo actual</h1>
+            <label for="ciudad">Ciudad </label><br>
+            <input type="text" name="ciudad" id="ciudad" class="campo"><br><br>
+            <label for="key">Clave API </label><br>
+            <input type="text" name="key" id="key" class="campo"><br /><br><br>
+            <button id="enviar" class="boton">Enviar</button>
+        </div>
+
+        <div id="descripcion">
+        </div>
+    </center>
+    <script>
+        document.getElementById("enviar").addEventListener('click', () => {
+            let ciudad = document.getElementById("ciudad").value;
+            let key = document.getElementById("key").value;
+            document.getElementById("ciudad").value = '';
+            document.getElementById("key").value = '';
+
+            fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${ciudad}}&limit=1&appid=${key}`)
+                .then((response) => response.json())
+                .then(function (json) {
+                    let lat = json[0].lat;
+                    let lon = json[0].lon;
+                    document.getElementById('consulta').style = 'display: none';
+                    document.getElementById('descripcion').classList.add('azul');
+
+                    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&lang=es&units=metric `)
+                        .then((response) => response.json())
+                        .then(function (json) {
+                            console.log(json);
+                            let descripcion = document.getElementById('descripcion');
+                            descripcion.innerHTML += `<h1>Tiempo en ${json.name}</h1>`
+                            descripcion.innerHTML += `<img src='https://openweathermap.org/img/wn/${json.weather[0].icon}@2x.png' alt=''> <br> ${json.weather[0].description}`;
+                            descripcion.innerHTML += "<p> <img src='imgs/humidity.png'>: " + json.main.humidity + " % </p>";
+                            descripcion.innerHTML += "<p> <img src='imgs/thermometer.png'>: " + json.main.temp + " ºC </p>";
+                            descripcion.innerHTML += "<p> <img src='imgs/wind.png'>: " + json.wind.speed + " km/h </p>";
+                            if (json.rain != null) {
+                                descripcion.innerHTML += "<p> <img src='imgs/rainy.png'>: " + json.rain['1h'] + " mm/h </p>";
+                            }
+                            if (json.snow != null) {
+                                descripcion.innerHTML += "<p> <img src='imgs/snowflake.png'>: " + json.snow['1h'] + " mm/h </p>";
+                            }
+                            descripcion.innerHTML += "<p> <button id='refresh' class ='boton' onclick ='refrescar()'>Volver</button> </p>";
+                        })
+                        .catch((error) => console.log(error));
+                })
+                .catch((error) => console.log(error));
+        });
+
+        function refrescar() {
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>

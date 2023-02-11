@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="tabla">
+        <tr>
+            <th>Nombre</th>
+            <th>Poblacion</th>
+            <th>Clima</th>
+            <th>Terreno</th>
+            <th>% de agua</th>
+        </tr>
+    </table>
+    <script>
+        fetch('https://swapi.dev/api/planets/')
+            .then((response) => response.json())
+            .then(function (json) {
+                json.results.forEach(element => {
+                    let tr = document.createElement('tr');
+                    tr.innerHTML = `
+                    <td>${element.name}</td>
+                    <td>${element.population}</td>
+                    <td>${element.climate}</td>
+                    <td>${element.terrain}</td>
+                    <td>${element.surface_water}</td>
+                    `;
+                    document.getElementById('tabla').append(tr);
+                });
+            })
+            .catch((error) => console.log(error));
+    </script>
+</body>
+
+</html>
